@@ -98,7 +98,17 @@ p{margin:0; max-width:70ch}
 
 /* ---------- Home ---------- */
 .home{display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:56px; align-items:start}
-.portrait{position:relative; width:200px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line); margin-top:36px; justify-self:end}
+.side-col{margin-top:36px; justify-self:end; width:220px; display:flex; flex-direction:column; align-items:center; gap:26px}
+.portrait{position:relative; width:200px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line)}
+.achv{width:100%; border-top:1px solid var(--line); padding-top:16px}
+.achv-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); margin:0 0 12px}
+.badges{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.badge{position:relative; display:flex; align-items:center; gap:10px; background:none; border:0; padding:0; font:500 0.9rem/1.25 var(--font-sans); color:var(--ink); text-align:left; cursor:help; width:100%}
+.badge svg{flex:none; width:36px; height:36px; border-radius:50%; box-shadow:0 0 0 2px var(--card), 0 0 0 3px var(--line)}
+.badge .x{font:600 0.7rem var(--font-sans); color:var(--navy); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:0 6px; margin-left:4px; white-space:nowrap}
+.badge .tip{position:absolute; z-index:5; right:calc(100% + 10px); top:50%; transform:translateY(-50%); width:220px; padding:9px 12px; border-radius:8px; background:var(--navy); color:var(--card); font-size:0.82rem; line-height:1.4; opacity:0; visibility:hidden; transition:opacity .15s; pointer-events:none}
+.badge:hover .tip, .badge:focus-visible .tip, .badge[aria-expanded="true"] .tip{opacity:1; visibility:visible}
+@media (prefers-reduced-motion: reduce){ .badge .tip{transition:none} }
 .portrait canvas, .portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
 .portrait span{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--font-serif); font-size:3.4rem; color:var(--navy)}
 .where{font-family:var(--font-serif); font-style:italic; font-size:1.15rem; color:var(--muted); margin-top:10px}
@@ -114,7 +124,14 @@ p{margin:0; max-width:70ch}
 .pair{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:40px}
 @media (max-width:760px){
   .home{grid-template-columns:minmax(0,1fr); gap:0}
-  .portrait{order:-1; width:128px; margin:0 0 24px 6px; justify-self:start}
+  .side-col{order:-1; width:auto; margin:0 0 28px; justify-self:stretch; flex-direction:row; flex-wrap:wrap; align-items:center; gap:18px 24px}
+  .portrait{width:128px; margin-left:6px}
+  .achv{flex:1 1 220px; border-top:0; padding-top:0}
+  .badge .tip{right:auto; left:0; top:calc(100% + 6px); transform:none}
+  .badges{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px 12px}
+  .badge{font-size:0.8rem; gap:8px}
+  .badge svg{width:28px; height:28px}
+  .badges li:nth-child(even) .badge .tip{left:auto; right:0}
   .pair{grid-template-columns:minmax(0,1fr)}
   section{padding-block:52px}
 }
@@ -232,7 +249,13 @@ footer .contact{margin-top:0}
             <dd><b>Research Scientist / Engineer</b> roles in Physical AI &amp; Robotics, Agentic AI, LLM Post-Training, Multimodal AI, and AI for Science.</dd>
           </dl>
         </div>
-        <div class="portrait" id="mark"><canvas id="grains"></canvas><span>BY</span><img src="photo.jpg" alt="Biao (Joseph) Yin" width="480" height="480"></div>
+        <aside class="side-col" aria-label="Profile">
+          <div class="portrait" id="mark"><canvas id="grains"></canvas><span>BY</span><img src="photo.jpg" alt="Biao (Joseph) Yin" width="480" height="480"></div>
+          <div class="achv">
+            <p class="achv-h">Achievements</p>
+            <ul class="badges" id="badges"></ul>
+          </div>
+        </aside>
       </div>
 
       <div class="pair">
@@ -492,6 +515,25 @@ const TAGS = [
   const paint = () => { tb.innerHTML = isDark() ? ICON.sun : ICON.moon; tb.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode"); tb.title = tb.getAttribute("aria-label"); };
   tb.addEventListener("click", () => { const next = isDark() ? "light" : "dark"; root.setAttribute("data-theme", next); try { localStorage.setItem("theme", next); } catch(e) {} paint(); });
   paint(); tli.appendChild(tb); icons.appendChild(tli);
+
+  // Achievements (GitHub-profile style, for fun)
+  const BADGES = [
+    { name:"Human-native AI Scientist", tip:"Trained on decades of real-world data. Runs on coffee, not GPUs.", c1:"#f4c27a", c2:"#e0892f", g:'<circle cx="18" cy="13.5" r="4.2"/><path d="M10.5 26c.6-4.4 3.7-7 7.5-7s6.9 2.6 7.5 7"/>' },
+    { name:"Member of Coding-less Staff", tip:"Writes the spec, reviews the diff. The agents do the typing.", c1:"#9fc3ee", c2:"#4f7fc0", g:'<path d="M14 13l-4.5 5 4.5 5M22 13l4.5 5-4.5 5"/><path d="M11 27 25 9"/>' },
+    { name:"Future Life Happier", x:"×∞", tip:"Every model shipped is meant to give an expert an hour back.", c1:"#ffe08a", c2:"#f2b632", g:'<circle cx="18" cy="18" r="6.5"/><path d="M15.4 19.4c1.4 1.5 3.8 1.5 5.2 0M15.6 16.2h.01M20.4 16.2h.01"/>' },
+    { name:"Small-Data Whisperer", tip:"Got models to listen with a few hundred expert labels.", c1:"#b7e0c2", c2:"#4f9a68", g:'<circle cx="16.5" cy="16.5" r="6"/><path d="M21 21l5 5"/><circle cx="16.5" cy="16.5" r="1.3"/>' },
+    { name:"Rare-Event Hunter", x:"<1%", tip:"Finds the one hypoglycemia event hiding among a hundred normal readings.", c1:"#f3b0a8", c2:"#c9574a", g:'<circle cx="18" cy="18" r="8"/><circle cx="18" cy="18" r="4"/><circle cx="18" cy="18" r="0.9"/>' },
+    { name:"Benchmark Escapee", tip:"Left the leaderboard for a corrosion field in Florida. No regrets.", c1:"#cdb8ef", c2:"#7a5cc0", g:'<path d="M12 10h9v16h-9z"/><path d="M18 18h10M25 15l3 3-3 3"/>' }
+  ];
+  const bl = document.getElementById("badges");
+  BADGES.forEach((b, i) => {
+    const li = document.createElement("li"), btn = document.createElement("button");
+    btn.type = "button"; btn.className = "badge"; btn.id = "badge-" + i; btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = `<svg viewBox="0 0 36 36" aria-hidden="true"><defs><linearGradient id="bg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${b.c1}"/><stop offset="1" stop-color="${b.c2}"/></linearGradient></defs><circle cx="18" cy="18" r="18" fill="url(#bg${i})"/><g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${b.g}</g></svg><span>${esc(b.name)}${b.x ? `<span class="x">${esc(b.x)}</span>` : ""}</span><span class="tip" role="tooltip">${esc(b.tip)}</span>`;
+    btn.addEventListener("click", () => { const open = btn.getAttribute("aria-expanded") === "true"; bl.querySelectorAll(".badge").forEach(x => x.setAttribute("aria-expanded", "false")); btn.setAttribute("aria-expanded", String(!open)); });
+    li.appendChild(btn); bl.appendChild(li);
+  });
+  document.addEventListener("click", e => { if (!e.target.closest(".badge")) bl.querySelectorAll(".badge").forEach(x => x.setAttribute("aria-expanded", "false")); });
 
   // Copy e-mail
   const btn = document.getElementById("copy-email"), email = document.getElementById("email-text");
