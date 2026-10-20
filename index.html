@@ -97,8 +97,8 @@ p{margin:0; max-width:70ch}
 .bullets li::before{content:""; position:absolute; left:2px; top:0.62em; width:7px; height:7px; border-radius:50%; background:var(--bullet)}
 
 /* ---------- Home ---------- */
-.home{display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:56px; align-items:start}
-.side-col{margin-top:36px; justify-self:end; width:220px; display:flex; flex-direction:column; align-items:center; gap:26px}
+.home{display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; align-items:start}
+.side-col{order:-1; margin-top:36px; justify-self:start; width:220px; display:flex; flex-direction:column; align-items:center; gap:26px}
 .portrait{position:relative; width:200px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line)}
 .achv{width:100%; border-top:1px solid var(--line); padding-top:16px}
 .achv-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); margin:0 0 12px}
@@ -106,7 +106,7 @@ p{margin:0; max-width:70ch}
 .badge{position:relative; display:flex; align-items:center; gap:10px; background:none; border:0; padding:0; font:500 0.9rem/1.25 var(--font-sans); color:var(--ink); text-align:left; cursor:help; width:100%}
 .badge svg{flex:none; width:36px; height:36px; border-radius:50%; box-shadow:0 0 0 2px var(--card), 0 0 0 3px var(--line)}
 .badge .x{font:600 0.7rem var(--font-sans); color:var(--navy); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:0 6px; margin-left:4px; white-space:nowrap}
-.badge .tip{position:absolute; z-index:5; right:calc(100% + 10px); top:50%; transform:translateY(-50%); width:220px; padding:9px 12px; border-radius:8px; background:var(--navy); color:var(--card); font-size:0.82rem; line-height:1.4; opacity:0; visibility:hidden; transition:opacity .15s; pointer-events:none}
+.badge .tip{position:absolute; z-index:5; left:calc(100% + 10px); top:50%; transform:translateY(-50%); width:220px; padding:9px 12px; border-radius:8px; background:var(--navy); color:var(--card); font-size:0.82rem; line-height:1.4; opacity:0; visibility:hidden; transition:opacity .15s; pointer-events:none}
 .badge:hover .tip, .badge:focus-visible .tip, .badge[aria-expanded="true"] .tip{opacity:1; visibility:visible}
 @media (prefers-reduced-motion: reduce){ .badge .tip{transition:none} }
 .portrait canvas, .portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
