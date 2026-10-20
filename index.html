@@ -171,6 +171,7 @@ p{margin:0; max-width:70ch}
 .mod{font:600 0.72rem var(--font-sans); letter-spacing:0.22em; text-transform:uppercase; color:var(--c-science); margin:0}
 #track-nlp .mod{color:var(--c-clinical)} #track-signals .mod{color:var(--c-ml)}
 .kw{list-style:none; margin:2px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.kw a{color:inherit; text-decoration:none; border-bottom:1px dashed currentColor}
 .kw li{font-size:0.84rem; font-weight:600; padding:3px 11px; border-radius:999px; background:var(--bg); border:1px solid var(--line); color:var(--navy)}
 .impact{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; font-size:0.97rem}
 .impact li{position:relative; padding-left:20px}
@@ -352,16 +353,17 @@ footer .contact{margin-top:0}
         <div class="track-body">
           <p class="mod">Vision</p>
           <h3>Scientific image AI for materials</h3>
-          <ul class="kw"><li>Self-supervised detection</li><li>Scientist-infused segmentation</li><li>Lab-to-real transfer</li><li>Generative microstructures</li></ul>
+          <ul class="kw"><li>Self-supervised detection</li><li>Scientist-infused segmentation</li><li><a href="https://par.nsf.gov/biblio/10430301" target="_blank" rel="noopener">Sim-to-real transfer</a></li><li>Generative microstructures</li></ul>
           <ul class="impact">
             <li><b>MOSS</b> platform on web and iOS, in use at the U.S. Army Florida test field and PPG</li>
             <li>Lightweight U-Net beats Transformers on small, imbalanced expert labels</li>
             <li>Alloy microstructures generated in seconds instead of weeks of casting</li>
           </ul>
-          <p class="keypapers"><span>Key papers</span> DeepSC-Edge, ICMLA 2023 · MOSS, CIKM 2023 · AlloyGAN, ICMLA 2023 · Corrosion Image Data Set, BMVC 2021</p>
+          <p class="keypapers"><span>Key papers</span> DeepSC-Edge, ICMLA 2023 · MOSS, CIKM 2023 · <a href="https://par.nsf.gov/biblio/10430301" target="_blank" rel="noopener">Indoor-to-Outdoor Domain Adaptation, ICMLA 2022</a> · AlloyGAN, ICMLA 2023 · Corrosion Image Data Set, BMVC 2021</p>
         </div>
         <div class="track-figs">
           <figure class="fig"><img src="figures/deepsc-edge.png" alt="DeepSC-Edge segmentation results" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>DeepSC-Edge, ICMLA 2023</figcaption></figure>
+          <figure class="fig"><img src="figures/sim-to-real.png" alt="Indoor-to-outdoor domain adaptation for corrosion images" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Sim-to-real transfer: indoor-to-outdoor domain adaptation, ICMLA 2022</figcaption></figure>
           <figure class="fig"><img src="figures/moss.png" alt="MOSS platform interface" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>MOSS, CIKM 2023</figcaption></figure>
         </div>
       </article>
@@ -379,8 +381,8 @@ footer .contact{margin-top:0}
           <p class="keypapers"><span>Key papers</span> SDOH extraction with LLMs, AMIA 2025 · Multimodal Multi-Agent Systems, npj Digital Medicine 2026 · Human Attention Maps, ACL 2020</p>
         </div>
         <div class="track-figs">
+          <figure class="fig"><img src="figures/agents.png" alt="Multimodal multi-agent systems in healthcare" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Multimodal multi-agent systems in healthcare, npj Digital Medicine 2026</figcaption></figure>
           <figure class="fig"><img src="figures/sdoh-llm.png" alt="LLM pipeline for social determinants of health" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>SDOH extraction, AMIA 2025</figcaption></figure>
-          <figure class="fig"><img src="figures/agents.png" alt="Multimodal multi-agent systems in healthcare" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>npj Digital Medicine 2026</figcaption></figure>
         </div>
       </article>
 
