@@ -106,6 +106,11 @@ p{margin:0; max-width:70ch}
 .contact code{font-family:var(--font-sans); user-select:all; color:var(--ink)}
 .copy{font:600 0.7rem var(--font-sans); letter-spacing:0.16em; text-transform:uppercase; color:var(--navy); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:4px 12px; cursor:pointer}
 .copy:hover{border-color:var(--navy)}
+.facts{display:grid; grid-template-columns:96px minmax(0,1fr); gap:12px 20px; margin:26px 0 0; max-width:70ch}
+.facts dt{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); padding-top:4px}
+.facts dd{margin:0; line-height:1.55}
+.facts dd b{font-weight:700}
+@media (max-width:520px){ .facts{grid-template-columns:minmax(0,1fr); gap:2px} .facts dd{margin-bottom:12px} }
 .pair{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:40px}
 @media (max-width:760px){
   .home{grid-template-columns:minmax(0,1fr); gap:0}
@@ -214,12 +219,16 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
           <h1 id="home-h">Hello, I'm Joseph.</h1>
           <p class="where">Senior AI Research Scientist · UMass Chan Medical School</p>
           <p class="lede">I build AI that works beyond benchmarks—on <b>small, noisy, multimodal</b> data, where labels are scarce and mistakes are costly in real-world physical systems.</p>
-          <div class="prose">
-            <p>I'm a Senior AI Research Scientist at UMass Chan Medical School, developing <b>Trustworthy AI</b> for precision medicine. My research spans rare-event disease prediction from wearable signals, fusion of clinical notes with structured EHR, multimodal clinical agents, and fairness-aligned LLM post-training.</p>
-            <p>During my PhD in AI for Science at Worcester Polytechnic Institute (WPI), I led U.S. Army DEVCOM-funded research on millimeter-scale corrosion with <b>lightweight, simple yet effective</b> models: detection with <b>self-supervised learning</b>, segmentation with <b>scientist-infused learning</b>, and <b>lab-to-real transfer learning</b> with <b>data-efficient modeling</b>. Trained on small, severely imbalanced, expert-labeled data, these <b>edge-ready</b> models shipped as web and iOS inspection tools for the U.S. Army, PPG, and ASM International.</p>
-            <p>My research has also contributed to Amazon Alexa's on-device personalization, where efficient AI must operate under device constraints, and USTC–iFlytek's AI-powered cognitive screening, resulting in an issued patent and technology deployed in hospitals. Across these projects, my focus has remained consistent: making AI <b>reliable, data-efficient, and useful</b> outside controlled laboratory environments.</p>
-            <p>I'm open to <b>Research Scientist and Research Engineer</b> opportunities in Physical AI &amp; Robotics, Agentic AI, LLM Post-Training, Multimodal AI, and AI for Science.</p>
-          </div>
+          <dl class="facts">
+            <dt>Now</dt>
+            <dd><b>Trustworthy AI</b> for precision medicine at UMass Chan: wearable rare-event prediction, notes + EHR fusion, clinical agents, fairness-aligned LLM post-training.</dd>
+            <dt>PhD</dt>
+            <dd><b>AI for Science</b> at WPI with U.S. Army DEVCOM: <b>lightweight, data-efficient</b> vision for millimeter-scale corrosion, deployed to the Army, PPG, and ASM.</dd>
+            <dt>Industry</dt>
+            <dd><b>On-device AI</b> at Amazon Alexa; AI cognitive screening at iFlytek (issued patent, in hospital use).</dd>
+            <dt>Seeking</dt>
+            <dd><b>Research Scientist / Engineer</b> roles in Physical AI &amp; Robotics, Agentic AI, LLM Post-Training, Multimodal AI, and AI for Science.</dd>
+          </dl>
           <div class="contact">
             <code id="email-text">josephyin999@gmail.com</code>
             <button class="copy" id="copy-email" type="button">Copy</button>
@@ -305,7 +314,7 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
         </article>
         <article class="card">
           <h3>Deep learning on small scientific image sets</h3>
-          <p>Expert-guided segmentation of thin corrosion boundaries, domain adaptation from accelerated indoor tests to outdoor exposure, and a promptable GAN that generates aluminum alloy microstructures in seconds instead of weeks of casting trials.</p>
+          <p>Lightweight, simple yet effective models for millimeter-scale corrosion: detection with <b>self-supervised learning</b>, segmentation of thin, low-contrast boundaries with <b>scientist-infused learning</b>, and <b>lab-to-real transfer</b> from accelerated indoor tests to outdoor exposure. Also a promptable GAN that generates aluminum alloy microstructures in seconds instead of weeks of casting trials.</p>
         </article>
         <article class="card">
           <h3>Learning from noisy and partial labels</h3>
@@ -358,7 +367,7 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
           <div>
             <h3>Research Scientist II Intern</h3>
             <p class="org">Amazon, Alexa Devices · Boston, MA</p>
-            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
+            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation under device constraints, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
           </div>
         </li>
         <li class="card role">
@@ -368,7 +377,7 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
             <p class="org">Worcester Polytechnic Institute, via U.S. Army DEVCOM contract</p>
             <ul>
               <li>Led AI research and delivery for the U.S. Army, PPG, and ASM International, coordinating 100+ students, engineers, scientists, and PMs over five years.</li>
-              <li>Shipped MOSS, a web and iOS/iPadOS platform that serves the published corrosion models to scientists and technicians.</li>
+              <li>Trained edge-ready models on small, severely imbalanced, expert-labeled data and shipped them in MOSS, a web and iOS/iPadOS inspection platform for scientists and technicians.</li>
               <li>Contributed the ML behind the MIL-PRF-32662 performance-specification platform and ASM Handbook guidance on AI-driven materials analytics. Gave 4 invited talks on materials recovery for defense supply resiliency.</li>
               <li>Dissertation: <i>Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</i>. Advisor: Prof. Elke Rundensteiner.</li>
             </ul>
