@@ -202,11 +202,11 @@ footer .contact{margin-top:0}
     <a class="brand" href="#home">Biao (Joseph) Yin</a>
     <ul class="menu">
       <li><a href="#home">Home</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
       <li id="nav-citations" hidden><a href="#citations">Citations</a></li>
-      <li><a href="#experience">Experience</a></li>
     </ul>
     <ul class="icons" id="icons"></ul>
   </div>
@@ -232,7 +232,7 @@ footer .contact{margin-top:0}
             <dd><b>Research Scientist / Engineer</b> roles in Physical AI &amp; Robotics, Agentic AI, LLM Post-Training, Multimodal AI, and AI for Science.</dd>
           </dl>
         </div>
-        <div class="portrait" id="mark" aria-hidden="true"><canvas id="grains"></canvas><span>BY</span></div>
+        <div class="portrait" id="mark"><canvas id="grains"></canvas><span>BY</span><img src="photo.jpg" alt="Biao (Joseph) Yin" width="480" height="480"></div>
       </div>
 
       <div class="pair">
@@ -272,7 +272,61 @@ footer .contact{margin-top:0}
     </div>
   </section>
 
-  <section id="news" aria-labelledby="news-h">
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="container">
+      <p class="eyebrow">Experience</p>
+      <h2 id="exp-h">Experience</h2>
+      <ol class="roles">
+        <li class="card role">
+          <span class="when">2024 – now</span>
+          <div>
+            <h3>Senior AI Research Scientist</h3>
+            <p class="org">UMass Chan Medical School · Worcester, MA</p>
+            <ul>
+              <li>Led end-to-end LLM post-training for social-determinants extraction across Mistral, Llama, DeepSeek, and Qwen, raising macro-F1 by about 15 points from a ~75% baseline.</li>
+              <li>Built the smartwatch-to-CGM pipeline for non-invasive hypoglycemia warning, reaching ~70% early-warning recall on a sub-1% event without growing model size or inference cost.</li>
+              <li>Set up training and evaluation infrastructure for clinical LLMs and agents: DDP vs. DeepSpeed ZeRO-3 trade-offs, KV caching, calibration, and subgroup audits.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2022</span>
+          <div>
+            <h3>Research Scientist II Intern</h3>
+            <p class="org">Amazon, Alexa Devices · Boston, MA</p>
+            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation under device constraints, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2019 – 2024</span>
+          <div>
+            <h3>AI R&amp;D Lead · Ph.D. Researcher</h3>
+            <p class="org">Worcester Polytechnic Institute, via U.S. Army DEVCOM contract</p>
+            <ul>
+              <li>Led AI research and delivery for the U.S. Army, PPG, and ASM International, coordinating 100+ students, engineers, scientists, and PMs over five years.</li>
+              <li>Trained edge-ready models on small, severely imbalanced, expert-labeled data and shipped them in MOSS, a web and iOS/iPadOS inspection platform for scientists and technicians.</li>
+              <li>Contributed the ML behind the MIL-PRF-32662 performance-specification platform and ASM Handbook guidance on AI-driven materials analytics. Gave 4 invited talks on materials recovery for defense supply resiliency.</li>
+              <li>Dissertation: <i>Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</i>. Advisor: Prof. Elke Rundensteiner.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2018</span>
+          <div>
+            <h3>Core Technology Researcher Intern</h3>
+            <p class="org">iFlytek AI Lab · Hefei, China</p>
+            <ul><li>Classified figure-copying correctness from stroke-level pen features to automate early cognitive-impairment screening. Issued as patent CN109409329A and in clinical use at USTC-affiliated hospitals.</li></ul>
+          </div>
+        </li>
+      </ol>
+      <div class="service">
+        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
+        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
+        <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
+      </div>
+    </div>
+  </section>
+<  <section id="news" aria-labelledby="news-h">
     <div class="container">
       <p class="eyebrow">News</p>
       <h2 id="news-h">What's new</h2>
@@ -342,61 +396,7 @@ footer .contact{margin-top:0}
     </div>
   </section>
 
-  <section id="experience" aria-labelledby="exp-h">
-    <div class="container">
-      <p class="eyebrow">Experience</p>
-      <h2 id="exp-h">Experience</h2>
-      <ol class="roles">
-        <li class="card role">
-          <span class="when">2024 – now</span>
-          <div>
-            <h3>Senior AI Research Scientist</h3>
-            <p class="org">UMass Chan Medical School · Worcester, MA</p>
-            <ul>
-              <li>Led end-to-end LLM post-training for social-determinants extraction across Mistral, Llama, DeepSeek, and Qwen, raising macro-F1 by about 15 points from a ~75% baseline.</li>
-              <li>Built the smartwatch-to-CGM pipeline for non-invasive hypoglycemia warning, reaching ~70% early-warning recall on a sub-1% event without growing model size or inference cost.</li>
-              <li>Set up training and evaluation infrastructure for clinical LLMs and agents: DDP vs. DeepSpeed ZeRO-3 trade-offs, KV caching, calibration, and subgroup audits.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2022</span>
-          <div>
-            <h3>Research Scientist II Intern</h3>
-            <p class="org">Amazon, Alexa Devices · Boston, MA</p>
-            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation under device constraints, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2019 – 2024</span>
-          <div>
-            <h3>AI R&amp;D Lead · Ph.D. Researcher</h3>
-            <p class="org">Worcester Polytechnic Institute, via U.S. Army DEVCOM contract</p>
-            <ul>
-              <li>Led AI research and delivery for the U.S. Army, PPG, and ASM International, coordinating 100+ students, engineers, scientists, and PMs over five years.</li>
-              <li>Trained edge-ready models on small, severely imbalanced, expert-labeled data and shipped them in MOSS, a web and iOS/iPadOS inspection platform for scientists and technicians.</li>
-              <li>Contributed the ML behind the MIL-PRF-32662 performance-specification platform and ASM Handbook guidance on AI-driven materials analytics. Gave 4 invited talks on materials recovery for defense supply resiliency.</li>
-              <li>Dissertation: <i>Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</i>. Advisor: Prof. Elke Rundensteiner.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2018</span>
-          <div>
-            <h3>Core Technology Researcher Intern</h3>
-            <p class="org">iFlytek AI Lab · Hefei, China</p>
-            <ul><li>Classified figure-copying correctness from stroke-level pen features to automate early cognitive-impairment screening. Issued as patent CN109409329A and in clinical use at USTC-affiliated hospitals.</li></ul>
-          </div>
-        </li>
-      </ol>
-      <div class="service">
-        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
-        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
-        <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
-      </div>
-    </div>
-  </section>
-</main>
+/main>
 
 <footer id="contact">
   <div class="container">
