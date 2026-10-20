@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biao (Joseph) Yin</title>
+<meta name="description" content="Biao (Joseph) Yin, PhD — Senior AI Research Scientist working on responsible LLMs, clinical agents, and deep learning for scarce, noisy, multimodal real-world data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: steel-blue top bar (serif name, tracked uppercase menu, icon links); airy pale page; serif headlines in navy, tracked uppercase eyebrows, white cards, colour-coded publication areas. */
+:root{
+  --bg:#f3f6f9;
+  --card:#ffffff;
+  --ink:#27303b;
+  --muted:#5b6673;
+  --faint:#6d7884;
+  --line:#dde4ec;
+  --rule:#e4eaf1;
+  --navy:#2c4b70;
+  --bar:#5f87b2;
+  --bar-ink:#ffffff;
+  --bar-soft:rgba(255,255,255,0.78);
+  --bar-active:#f3f6f9;
+  --bullet:#7fa3c9;
+  --c-clinical:#9a3d3d;
+  --c-science:#4c6b4a;
+  --c-ml:#34587f;
+  --c-learning:#8a6a26;
+  --font-serif:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --bar-h:64px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161d; --card:#171e27; --ink:#dde4ec; --muted:#a3afbd; --faint:#8995a3; --line:#28323e; --rule:#1f2731;
+    --navy:#a9c5e6; --bar:#2a3f57; --bar-ink:#eef3f8; --bar-soft:rgba(238,243,248,0.72); --bar-active:#11161d; --bullet:#5f87b2;
+    --c-clinical:#e39a8f; --c-science:#9cc39a; --c-ml:#9dbde3; --c-learning:#dcbb72; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161d; --card:#171e27; --ink:#dde4ec; --muted:#a3afbd; --faint:#8995a3; --line:#28323e; --rule:#1f2731;
+  --navy:#a9c5e6; --bar:#2a3f57; --bar-ink:#eef3f8; --bar-soft:rgba(238,243,248,0.72); --bar-active:#11161d; --bullet:#5f87b2;
+  --c-clinical:#e39a8f; --c-science:#9cc39a; --c-ml:#9dbde3; --c-learning:#dcbb72; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:calc(var(--bar-h) + 12px + env(safe-area-inset-top, 0px))}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg); color:var(--ink); font-family:var(--font-sans); font-size:17.5px; line-height:1.65; -webkit-font-smoothing:antialiased}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--bar)}
+a{color:var(--navy); text-decoration:underline; text-decoration-style:dashed; text-decoration-thickness:1px; text-underline-offset:4px}
+a:hover{text-decoration-style:solid}
+:focus-visible{outline:2px solid var(--bar); outline-offset:3px; border-radius:3px}
+.container{max-width:1100px; margin:0 auto; padding-left:max(28px, env(safe-area-inset-left, 0px)); padding-right:max(28px, env(safe-area-inset-right, 0px))}
+@media (max-width:600px){ .container{padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))} }
+
+/* ---------- Top bar ---------- */
+.bar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:9; background:var(--bar); color:var(--bar-ink)}
+.bar .container{min-height:var(--bar-h); display:flex; align-items:stretch; gap:24px}
+.brand{display:flex; align-items:center; font-family:var(--font-serif); font-weight:500; font-size:1.45rem; letter-spacing:-0.005em; color:var(--bar-ink); text-decoration:none; white-space:nowrap}
+.menu{display:flex; margin:0 0 0 auto; padding:0; list-style:none; overflow-x:auto; scrollbar-width:none; min-width:0}
+.menu::-webkit-scrollbar{display:none}
+.menu a{display:flex; align-items:center; height:100%; padding:0 16px; font:500 0.78rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--bar-ink); text-decoration:none; white-space:nowrap; border-left:1px solid rgba(255,255,255,0.14)}
+.menu li:last-child a{border-right:1px solid rgba(255,255,255,0.14)}
+.menu a:hover{background:rgba(255,255,255,0.1)}
+.menu a[aria-current="true"]{background:var(--bar-active); color:var(--navy)}
+.icons{display:flex; align-items:center; gap:4px; margin:0; padding:0; list-style:none}
+.icons a, .icons button{display:grid; place-items:center; width:36px; height:36px; border-radius:8px; color:var(--bar-soft); background:none; border:0; cursor:pointer; text-decoration:none}
+.icons a:hover, .icons button:hover{color:var(--bar-ink); background:rgba(255,255,255,0.12)}
+.icons svg{width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+@media (max-width:900px){
+  .bar .container{flex-wrap:wrap; gap:0 12px}
+  .brand{height:54px; font-size:1.25rem}
+  .icons{margin-left:auto}
+  .menu{order:3; flex-basis:100%; margin:0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); border-top:1px solid rgba(255,255,255,0.14)}
+  .menu a{height:44px; padding:0 14px; font-size:0.72rem}
+  .menu li:first-child a{border-left:0}
+  html{scroll-padding-top:calc(110px + env(safe-area-inset-top, 0px))}
+}
+
+/* ---------- Shared type ---------- */
+section{padding-block:72px}
+section + section{border-top:5px solid var(--rule)}
+.eyebrow{font:600 0.78rem var(--font-sans); letter-spacing:0.24em; text-transform:uppercase; color:var(--navy); margin:0 0 14px}
+h1, h2{font-family:var(--font-serif); font-weight:400; color:var(--navy); letter-spacing:-0.01em; text-wrap:balance; margin:0}
+h1{font-size:clamp(2.6rem, 5.4vw, 4rem); line-height:1.05}
+h2{font-size:clamp(2rem, 3.6vw, 2.75rem); line-height:1.1}
+h3{font-family:var(--font-serif); font-style:italic; font-weight:400; font-size:1.45rem; line-height:1.25; color:var(--navy); margin:0}
+p{margin:0; max-width:70ch}
+.lede{font-size:1.2rem; line-height:1.6; margin-top:22px}
+.lede b, .prose b{font-weight:700}
+.prose{display:flex; flex-direction:column; gap:14px; margin-top:22px; color:var(--ink)}
+.card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:26px 30px; box-shadow:0 1px 2px rgba(30,50,80,0.04)}
+.bullets{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:8px}
+.bullets li{position:relative; padding-left:24px}
+.bullets li::before{content:""; position:absolute; left:2px; top:0.62em; width:7px; height:7px; border-radius:50%; background:var(--bullet)}
+
+/* ---------- Home ---------- */
+.home{display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:56px; align-items:start}
+.portrait{position:relative; width:200px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line); margin-top:36px; justify-self:end}
+.portrait canvas, .portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.portrait span{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--font-serif); font-size:3.4rem; color:var(--navy)}
+.where{font-family:var(--font-serif); font-style:italic; font-size:1.15rem; color:var(--muted); margin-top:10px}
+.contact{display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; margin-top:24px; font-size:0.98rem}
+.contact code{font-family:var(--font-sans); user-select:all; color:var(--ink)}
+.copy{font:600 0.7rem var(--font-sans); letter-spacing:0.16em; text-transform:uppercase; color:var(--navy); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:4px 12px; cursor:pointer}
+.copy:hover{border-color:var(--navy)}
+.pair{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:40px}
+@media (max-width:760px){
+  .home{grid-template-columns:minmax(0,1fr); gap:0}
+  .portrait{order:-1; width:128px; margin:0 0 24px 6px; justify-self:start}
+  .pair{grid-template-columns:minmax(0,1fr)}
+  section{padding-block:52px}
+}
+
+.stats{display:flex; flex-wrap:wrap; gap:14px 44px; margin:36px 0 0; padding:0; list-style:none}
+.stats li{display:flex; flex-direction:column}
+.stats b{font-family:var(--font-serif); font-weight:400; font-size:2.3rem; line-height:1; color:var(--navy); font-variant-numeric:tabular-nums}
+.stats span{font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+
+/* Path (4 steps) */
+.path{list-style:none; margin:32px 0 0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px}
+.path li{display:flex; flex-direction:column; gap:4px; padding-top:18px; border-top:2px solid var(--line)}
+.path li.now{border-top-color:var(--bar)}
+.path .yr{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--faint)}
+.path .org{font-weight:700; line-height:1.3}
+.path .rl{font-size:0.95rem; color:var(--muted); line-height:1.45}
+@media (max-width:820px){ .path{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:460px){ .path{grid-template-columns:minmax(0,1fr)} }
+
+/* News */
+.news{list-style:none; margin:28px 0 0; padding:0; display:flex; flex-direction:column}
+.news li{display:grid; grid-template-columns:96px minmax(0,1fr); gap:2px 20px; padding:14px 0; border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news .d{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--faint)}
+.more summary{cursor:pointer; list-style:none; display:inline-block; font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); border:1px solid var(--line); background:var(--card); border-radius:999px; padding:6px 16px; margin-top:16px}
+.more summary::-webkit-details-marker{display:none}
+.more[open] summary{margin-bottom:6px}
+@media (max-width:520px){ .news li{grid-template-columns:minmax(0,1fr)} }
+
+/* Research */
+.themes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:36px}
+.themes .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
+@media (max-width:760px){ .themes{grid-template-columns:minmax(0,1fr)} }
+.exploring{margin-top:28px; color:var(--muted)}
+.exploring b{color:var(--ink); font-weight:600}
+
+/* Publications */
+.legend{font-size:0.95rem; color:var(--faint); margin-top:14px}
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+.chips button{--c:var(--navy); font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c); background:transparent; border:1px solid color-mix(in srgb, var(--c) 45%, transparent); border-radius:999px; padding:8px 18px; cursor:pointer}
+.chips button:hover{background:color-mix(in srgb, var(--c) 8%, transparent)}
+.chips button[aria-pressed="true"]{background:var(--c); border-color:var(--c); color:var(--card)}
+.chips [data-tag="clinical"], .pub[data-tag="clinical"]{--c:var(--c-clinical)}
+.chips [data-tag="science"], .pub[data-tag="science"]{--c:var(--c-science)}
+.chips [data-tag="ml"], .pub[data-tag="ml"]{--c:var(--c-ml)}
+.chips [data-tag="learning"], .pub[data-tag="learning"]{--c:var(--c-learning)}
+.yr-h{font-family:var(--font-serif); font-style:italic; font-weight:400; font-size:2.6rem; line-height:1; color:color-mix(in srgb, var(--navy) 55%, transparent); margin:44px 0 18px; padding-top:22px; border-top:1px solid var(--line)}
+.pubs{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:22px}
+.pub{display:flex; flex-direction:column; gap:3px}
+.pub .tag{font:600 0.68rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c)}
+.pub .t{font-weight:700; line-height:1.4; color:var(--ink)}
+.pub .t sup{color:var(--c-clinical); margin-left:2px}
+.pub .a{font-size:0.97rem; color:var(--muted)}
+.pub .a b{color:var(--ink); font-weight:600}
+.pub .v{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--ink)}
+.pub .v .note{font-family:var(--font-sans); font-style:normal; font-size:0.92rem; color:var(--faint)}
+
+/* Experience */
+.roles{list-style:none; margin:32px 0 0; padding:0; display:flex; flex-direction:column; gap:20px}
+.role{display:grid; grid-template-columns:130px minmax(0,1fr); gap:6px 28px}
+.role .when{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--faint); padding-top:2px}
+.role .org{color:var(--muted); font-size:0.97rem; margin-top:2px}
+.role ul{margin:10px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; font-size:0.98rem}
+.role ul li{position:relative; padding-left:22px}
+.role ul li::before{content:""; position:absolute; left:2px; top:0.62em; width:6px; height:6px; border-radius:50%; background:var(--bullet)}
+@media (max-width:620px){ .role{grid-template-columns:minmax(0,1fr)} }
+
+.cmap{padding:0; overflow:hidden; margin-top:28px}
+.cmap iframe{display:block; width:100%; height:min(520px, 70vh); border:0}
+.service{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:24px; margin-top:32px}
+.service .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
+@media (max-width:820px){ .service{grid-template-columns:minmax(0,1fr)} }
+
+footer{border-top:5px solid var(--rule); padding-block:32px 40px; font-size:0.9rem; color:var(--faint)}
+footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+</style>
+
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="bar">
+  <div class="container">
+    <a class="brand" href="#home">Biao (Joseph) Yin</a>
+    <ul class="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li id="nav-citations" hidden><a href="#citations">Citations</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+    <ul class="icons" id="icons"></ul>
+  </div>
+</header>
+
+<main>
+  <section id="home" aria-labelledby="home-h">
+    <div class="container">
+      <div class="home">
+        <div>
+          <p class="eyebrow">Home</p>
+          <h1 id="home-h">Hello, I'm Joseph.</h1>
+          <p class="where">Senior AI Research Scientist · UMass Chan Medical School</p>
+          <p class="lede">I build AI that holds up outside the benchmark: on <b>small, noisy, multimodal</b> data where labels are scarce and mistakes are costly.</p>
+          <div class="prose">
+            <p>I am a Senior AI Research Scientist at UMass Chan Medical School, where I work on responsible AI for precision medicine. My current projects cover rare-event prediction from consumer wearables, fusion of clinical notes with structured EHR, multimodal clinical agents, and LLM post-training under fairness constraints.</p>
+            <p>I developed these methods first in materials science. During my PhD in Data Science at Worcester Polytechnic Institute, under a U.S. Army DEVCOM contract, I led AI research for automated corrosion assessment and alloy design, working from expert-labeled image sets that were small and severely imbalanced. The resulting models were shipped as web and iOS tools to the U.S. Army, PPG, and ASM International. Before that I interned at Amazon Alexa on on-device personalization and at iFlytek, where my work on automated cognitive screening became an issued patent now used in hospitals.</p>
+            <p>I am open to <b>Research Scientist and Research Engineer</b> roles in clinical AI, LLM post-training, and multimodal agents.</p>
+          </div>
+          <div class="contact">
+            <code id="email-text">josephyin999@gmail.com</code>
+            <button class="copy" id="copy-email" type="button">Copy</button>
+            <span id="text-links"></span>
+          </div>
+        </div>
+        <div class="portrait" id="mark" aria-hidden="true"><canvas id="grains"></canvas><span>BY</span></div>
+      </div>
+
+      <div class="pair">
+        <div class="card">
+          <h3>Methods &amp; data</h3>
+          <ul class="bullets">
+            <li>LLM post-training and alignment</li>
+            <li>Multimodal fusion of notes, EHR, and signals</li>
+            <li>Learning from small, imbalanced, noisy labels</li>
+            <li>Domain adaptation and causal ML</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Applications</h3>
+          <ul class="bullets">
+            <li>Clinical decision support and agents</li>
+            <li>Social determinants and health equity</li>
+            <li>Wearables and rare-event prediction</li>
+            <li>Scientific discovery for materials</li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="stats" aria-label="Record at a glance">
+        <li><b>30</b><span>Applied AI papers</span></li>
+        <li><b>12</b><span>First-authored</span></li>
+        <li><b>1</b><span>Issued AI patent</span></li>
+        <li><b>100+</b><span>Contributors led</span></li>
+      </ul>
+
+      <ol class="path" aria-label="Path">
+        <li><span class="yr">2010 – 2016</span><span class="org">Statistics</span><span class="rl">B.S., Anhui Univ. of Finance &amp; Economics · M.S., George Washington University</span></li>
+        <li><span class="yr">2016 – 2024</span><span class="org">WPI · Data Science</span><span class="rl">M.S. and Ph.D. · AI R&amp;D lead on a U.S. Army DEVCOM contract</span></li>
+        <li><span class="yr">2018 · 2022</span><span class="org">Industry research</span><span class="rl">iFlytek AI Lab (patent) · Amazon Alexa (Research Scientist II intern)</span></li>
+        <li class="now"><span class="yr">2024 – now</span><span class="org">UMass Chan Medical School</span><span class="rl">Senior AI Research Scientist</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="news" aria-labelledby="news-h">
+    <div class="container">
+      <p class="eyebrow">News</p>
+      <h2 id="news-h">What's new</h2>
+      <ul class="news">
+        <li><span class="d">2026</span><span>Two papers out in Nature portfolio journals: multimodal multi-agent systems in healthcare (<i>npj Digital Medicine</i>) and AI-enabled decision support in epilepsy surgery (<i>npj Health Systems</i>).</span></li>
+        <li><span class="d">2026</span><span>Follow-up work on LLM extraction of social determinants of health accepted at AMIA 2026.</span></li>
+        <li><span class="d">2026</span><span>Chapter on AI-driven materials science analytics published in the <i>ASM Handbook</i>.</span></li>
+        <li><span class="d">2025</span><span>Presented LLM-based extraction of social determinants of health from clinical notes at AMIA 2025.</span></li>
+        <li><span class="d">2024</span><span>Joined UMass Chan Medical School as a Senior AI Research Scientist, after completing my Ph.D. in Data Science at WPI.</span></li>
+      </ul>
+      <details class="more" id="more-news">
+        <summary>More</summary>
+        <ul class="news">
+          <li><span class="d">2025</span><span>Semi-supervised domain adaptation with statistically independent ensembles at ICMLA 2025.</span></li>
+          <li><span class="d">2023</span><span>MOSS, our platform for discovering corrosion-resistant materials, shown at CIKM. AlloyGAN and DeepSC-Edge at ICMLA.</span></li>
+          <li><span class="d">2021</span><span>Released a multi-expert corrosion image benchmark at BMVC.</span></li>
+          <li><span class="d">2020</span><span>Human attention maps for text classification at ACL.</span></li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="research" aria-labelledby="research-h">
+    <div class="container">
+      <p class="eyebrow">Research</p>
+      <h2 id="research-h">From the lab bench to the bedside</h2>
+      <p class="lede">I develop <b>data-efficient and trustworthy AI methods</b> for decisions that rest on small, noisy, multimodal real-world data.</p>
+      <div class="themes">
+        <article class="card">
+          <h3>Responsible LLMs and agents for healthcare</h3>
+          <p>Post-training open LLMs (QLoRA, DPO, GRPO, adversarial alignment) to extract social determinants of health from clinical notes, with subgroup audits across race, sex, and payer. Engineering multimodal multi-agent systems that keep clinicians in control.</p>
+        </article>
+        <article class="card">
+          <h3>Signals, notes, and EHR in one model</h3>
+          <p>Aligning smartwatch streams with continuous glucose traces to warn of hypoglycemia, an event with under 1% positive rate. A ClinicalBERT model with a gated multimodal unit that weighs notes and structured EHR per patient.</p>
+        </article>
+        <article class="card">
+          <h3>Deep learning on small scientific image sets</h3>
+          <p>Expert-guided segmentation of thin corrosion boundaries, domain adaptation from accelerated indoor tests to outdoor exposure, and a promptable GAN that generates aluminum alloy microstructures in seconds instead of weeks of casting trials.</p>
+        </article>
+        <article class="card">
+          <h3>Learning from noisy and partial labels</h3>
+          <p>Comparing where humans and neural networks attend in text, and using human attention as supervision. Extending the same expert-in-the-loop idea to label denoising and LLM-assisted annotation.</p>
+        </article>
+      </div>
+      <p class="exploring"><b>Currently exploring:</b> multimodal agents, test-time training, sim-to-real transfer, self-improving loops, graph agents, causal ML, world models, positive-unlabeled learning, and closed-loop scientific discovery.</p>
+    </div>
+  </section>
+
+  <section id="publications" aria-labelledby="pubs-h">
+    <div class="container">
+      <p class="eyebrow">Publications</p>
+      <h2 id="pubs-h">Publications</h2>
+      <p class="legend">† first author · author lists abbreviated · <a id="scholar-inline" href="https://scholar.google.com/citations?user=PyuaaWAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
+      <div class="chips" role="group" aria-label="Filter publications by area" id="filters"></div>
+      <div id="pub-list"></div>
+    </div>
+  </section>
+
+  <section id="citations" aria-labelledby="cite-h" hidden>
+    <div class="container">
+      <p class="eyebrow">Citations</p>
+      <h2 id="cite-h">Who cites this work</h2>
+      <p class="lede">Affiliations of researchers citing my papers, drawn from Google Scholar.</p>
+      <div class="card cmap" id="cmap"></div>
+      <p class="legend">Generated with <a href="https://github.com/ChenLiu-1996/CitationMap" target="_blank" rel="noopener">CitationMap</a> and reviewed by hand. Each pin is a citing author's institution.</p>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="container">
+      <p class="eyebrow">Experience</p>
+      <h2 id="exp-h">Experience</h2>
+      <ol class="roles">
+        <li class="card role">
+          <span class="when">2024 – now</span>
+          <div>
+            <h3>Senior AI Research Scientist</h3>
+            <p class="org">UMass Chan Medical School · Worcester, MA</p>
+            <ul>
+              <li>Led end-to-end LLM post-training for social-determinants extraction across Mistral, Llama, DeepSeek, and Qwen, raising macro-F1 by about 15 points from a ~75% baseline.</li>
+              <li>Built the smartwatch-to-CGM pipeline for non-invasive hypoglycemia warning, reaching ~70% early-warning recall on a sub-1% event without growing model size or inference cost.</li>
+              <li>Set up training and evaluation infrastructure for clinical LLMs and agents: DDP vs. DeepSpeed ZeRO-3 trade-offs, KV caching, calibration, and subgroup audits.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2022</span>
+          <div>
+            <h3>Research Scientist II Intern</h3>
+            <p class="org">Amazon, Alexa Devices · Boston, MA</p>
+            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2019 – 2024</span>
+          <div>
+            <h3>AI R&amp;D Lead · Ph.D. Researcher</h3>
+            <p class="org">Worcester Polytechnic Institute, via U.S. Army DEVCOM contract</p>
+            <ul>
+              <li>Led AI research and delivery for the U.S. Army, PPG, and ASM International, coordinating 100+ students, engineers, scientists, and PMs over five years.</li>
+              <li>Shipped MOSS, a web and iOS/iPadOS platform that serves the published corrosion models to scientists and technicians.</li>
+              <li>Contributed the ML behind the MIL-PRF-32662 performance-specification platform and ASM Handbook guidance on AI-driven materials analytics. Gave 4 invited talks on materials recovery for defense supply resiliency.</li>
+              <li>Dissertation: <i>Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</i>. Advisor: Prof. Elke Rundensteiner.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card role">
+          <span class="when">2018</span>
+          <div>
+            <h3>Core Technology Researcher Intern</h3>
+            <p class="org">iFlytek AI Lab · Hefei, China</p>
+            <ul><li>Classified figure-copying correctness from stroke-level pen features to automate early cognitive-impairment screening. Issued as patent CN109409329A and in clinical use at USTC-affiliated hospitals.</li></ul>
+          </div>
+        </li>
+      </ol>
+      <div class="service">
+        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
+        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
+        <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Biao (Joseph) Yin · San Jose, California</span>
+    <span>Last updated October 2026</span>
+  </div>
+</footer>
+
+<script>
+/* ===== Edit here: profile links. Empty strings are hidden. icon: mail | scholar | linkedin | github | cv ===== */
+const LINKS = [
+  { label: "Email",          icon: "mail",     href: "mailto:josephyin999@gmail.com" },
+  { label: "Google Scholar", icon: "scholar",  href: "https://scholar.google.com/citations?user=PyuaaWAAAAAJ&hl=en" },
+  { label: "LinkedIn",       icon: "linkedin", href: "" },
+  { label: "GitHub",         icon: "github",   href: "https://github.com/Boaz-Yin" },
+  { label: "CV",             icon: "cv",       href: "" }   // e.g. "cv.pdf" once you add the file to the repo
+];
+
+/* ===== Edit here: publications. tag: clinical | science | ml | learning ===== */
+const PUBS = [
+  { y:"Under review", tag:"clinical", first:true,  t:"Noninvasive Smartwatch-Based Hypoglycemia Prediction Using Machine Learning", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
+  { y:"Under review", tag:"clinical", first:true,  t:"Multimodal Multilabel Deep Learning for Identification of Opioid Use Disorder Using Clinical Notes and Structured EHR", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
+  { y:"Under review", tag:"clinical", first:false, t:"Fairness Assessment and Bias Mitigation in Cardiovascular Risk Prediction for Type 2 Diabetes", a:"… <b>B. Yin</b>, et al.", v:"Manuscript in submission" },
+  { y:"2026", tag:"clinical", first:false, t:"Multimodal Multi-Agent Systems in Healthcare", a:"… <b>B. Yin</b>, et al.", v:"npj Digital Medicine" },
+  { y:"2026", tag:"clinical", first:false, t:"AI-Enabled Decision Support Systems in Epilepsy Surgery", a:"… <b>B. Yin</b>, et al.", v:"npj Health Systems" },
+  { y:"2026", tag:"science",  first:false, t:"Smart AI-Driven Materials Science Analytics", a:"C. Thomas, <b>B. Yin</b>, et al.", v:"ASM Handbook" },
+  { y:"2025", tag:"clinical", first:true,  t:"Extracting Social Determinants of Health from Clinical Notes Using Large Language Models", a:"<b>B. Yin</b>, et al.", v:"AMIA Annual Symposium", note:"follow-up at AMIA 2026" },
+  { y:"2025", tag:"science",  first:false, t:"Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation", a:"… <b>B. Yin</b>, et al.", v:"ICMLA" },
+  { y:"2024", tag:"science",  first:false, t:"Learning to Adapt Deep Corrosion Assessment Models from Indoor to Outdoor Image Domains", a:"N. Josselyn, <b>B. Yin</b>, et al.", v:"IEEE Access" },
+  { y:"2024", tag:"ml",       first:false, t:"Understanding Hyperbolic Metric Learning through Hard Negative Sampling", a:"Y. Yue, … <b>B. Yin</b>, et al.", v:"WACV" },
+  { y:"2023", tag:"science",  first:true,  t:"AlloyGAN: Domain-Promptable Generative Adversarial Network for Generating Aluminum Alloy Microstructures", a:"<b>B. Yin</b>, et al.", v:"ICMLA", note:"extended at TMS 2024" },
+  { y:"2023", tag:"science",  first:true,  t:"DeepSC-Edge: Scientific Corrosion Segmentation with Edge-Guided and Class-Balanced Losses", a:"<b>B. Yin</b>, et al.", v:"ICMLA" },
+  { y:"2023", tag:"science",  first:true,  t:"MOSS: AI Platform for Discovery of Corrosion-Resistant Materials", a:"<b>B. Yin</b>, et al.", v:"CIKM", note:"demo" },
+  { y:"2023", tag:"ml",       first:false, t:"PRISE: Demystifying Deep Lucas-Kanade with Strongly Star-Convex Constraints for Multimodal Image Alignment", a:"Y. Zhang, … <b>B. Yin</b>, et al.", v:"CVPR" },
+  { y:"2023", tag:"science",  first:false, t:"MIL-PRF-32662 Context-Aware Agile Platform", a:"R. Jensen, … <b>B. Yin</b>, E. Rundensteiner", v:"U.S. Army Technical Report" },
+  { y:"2021", tag:"science",  first:true,  t:"Corrosion Image Data Set for Automating Scientific Assessment of Materials", a:"<b>B. Yin</b>, et al.", v:"BMVC" },
+  { y:"2021", tag:"ml",       first:false, t:"ELITE: Robust Deep Anomaly Detection with Meta Gradient", a:"H. Zhang, … <b>B. Yin</b>, et al.", v:"KDD" },
+  { y:"2020", tag:"ml",       first:false, t:"Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?", a:"C. Sen, T. Hartvigsen, <b>B. Yin</b>, et al.", v:"ACL" },
+  { y:"2020", tag:"science",  first:true,  t:"Corrosion Assessment: Data Mining for Quantifying Associations between Indoor Accelerated and Outdoor Natural Tests", a:"<b>B. Yin</b>, et al.", v:"IEEE BigData Workshop" },
+  { y:"2018", tag:"clinical", first:false, t:"Automatic Discriminant Analysis of Graphic Problems Based on Tracked Points", a:"F. Xu, <b>B. Yin</b>, et al.", v:"Patent CN109409329A", note:"iFlytek, issued" },
+  { y:"2017", tag:"learning", first:true,  t:"Observing Personalizations in Learning: Identifying Heterogeneous Treatment Effects Using Causal Trees", a:"<b>B. Yin</b>, et al.", v:"ACM Learning @ Scale" },
+  { y:"2017", tag:"learning", first:true,  t:"Causal Forest vs. Naive Causal Forest in Detecting Personalization: An Empirical Study in ASSISTments", a:"<b>B. Yin</b>, et al.", v:"Educational Data Mining" },
+  { y:"2017", tag:"learning", first:false, t:"Using “Snapshots” of Student Performance to Model Wheel Spinning", a:"S. A. Adjei, A. F. Botelho, T. Patikorn, <b>B. Yin</b>, J. E. Beck", v:"Educational Data Mining" }
+];
+const TAGS = [
+  { id:"all", label:"All" },
+  { id:"clinical", label:"Clinical AI" },
+  { id:"science", label:"AI for Science" },
+  { id:"ml", label:"Machine Learning" },
+  { id:"learning", label:"Causal ML" }
+];
+
+(function(){
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const tagName = id => (TAGS.find(t => t.id === id) || {}).label || id;
+  const ICON = {
+    mail:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>',
+    scholar:'<svg viewBox="0 0 24 24"><path d="M2.5 9.5 12 4.5l9.5 5-9.5 5z"/><path d="M6.5 11.6v4.1c0 1.5 2.5 2.8 5.5 2.8s5.5-1.3 5.5-2.8v-4.1"/><path d="M21.5 9.5v5"/></svg>',
+    linkedin:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.3v.2M11.5 17v-6.5M11.5 13.2c0-1.6 1.1-2.7 2.5-2.7s2.5.9 2.5 2.7V17"/></svg>',
+    github:'<svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.1-6-2.6m12 4.6v-3.4a3 3 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.3 2.7 5.3 3 5.3 3a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.4c0 4.6 2.8 5.6 5.5 6a3 3 0 0 0-.8 2.2V21"/></svg>',
+    cv:'<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>',
+    moon:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
+    sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>'
+  };
+
+  // Icon links in the bar + text links on the home section
+  const icons = document.getElementById("icons"), textLinks = document.getElementById("text-links");
+  LINKS.filter(l => l.href).forEach(l => {
+    const li = document.createElement("li"), a = document.createElement("a");
+    a.href = l.href; a.innerHTML = ICON[l.icon] || ""; a.setAttribute("aria-label", l.label); a.title = l.label;
+    if (/^https?:/.test(l.href)) { a.target = "_blank"; a.rel = "noopener"; }
+    li.appendChild(a); icons.appendChild(li);
+    if (l.icon !== "mail") {
+      const t = document.createElement("a"); t.href = l.href; t.textContent = l.label; t.style.marginRight = "16px";
+      if (/^https?:/.test(l.href)) { t.target = "_blank"; t.rel = "noopener"; }
+      textLinks.appendChild(t);
+    }
+  });
+
+  // Theme toggle (remembered per viewer)
+  const root = document.documentElement;
+  try { const th = localStorage.getItem("theme"); if (th === "dark" || th === "light") root.setAttribute("data-theme", th); } catch(e) {}
+  const isDark = () => root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const tli = document.createElement("li"), tb = document.createElement("button");
+  tb.type = "button"; tb.id = "theme-toggle";
+  const paint = () => { tb.innerHTML = isDark() ? ICON.sun : ICON.moon; tb.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode"); tb.title = tb.getAttribute("aria-label"); };
+  tb.addEventListener("click", () => { const next = isDark() ? "light" : "dark"; root.setAttribute("data-theme", next); try { localStorage.setItem("theme", next); } catch(e) {} paint(); });
+  paint(); tli.appendChild(tb); icons.appendChild(tli);
+
+  // Copy e-mail
+  const btn = document.getElementById("copy-email"), email = document.getElementById("email-text");
+  btn.addEventListener("click", () => {
+    const done = t => { btn.textContent = t; setTimeout(() => btn.textContent = "Copy", 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(email); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done("Selected"); };
+    try { navigator.clipboard.writeText(email.textContent).then(() => done("Copied"), fallback); } catch(e) { fallback(); }
+  });
+
+  // Publications
+  let current = "all";
+  try { const saved = localStorage.getItem("pubFilter"); if (saved && TAGS.some(t => t.id === saved)) current = saved; } catch(e) {}
+  const filters = document.getElementById("filters"), list = document.getElementById("pub-list");
+  TAGS.forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button"; b.id = "f-" + t.id; b.dataset.tag = t.id; b.textContent = t.label;
+    b.addEventListener("click", () => { current = t.id; try { localStorage.setItem("pubFilter", current); } catch(e) {} render(); });
+    filters.appendChild(b);
+  });
+  function render(){
+    filters.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.tag === current)));
+    const items = PUBS.filter(p => current === "all" || p.tag === current);
+    const years = [...new Set(items.map(p => p.y))];
+    list.innerHTML = years.map(y => `
+      <h3 class="yr-h">${esc(y)}</h3>
+      <ol class="pubs">${items.filter(p => p.y === y).map(p => `
+        <li class="pub" data-tag="${p.tag}">
+          <span class="tag">${esc(tagName(p.tag))}</span>
+          <span class="t">${esc(p.t)}${p.first ? '<sup title="First author">†</sup>' : ""}</span>
+          <span class="a">${p.a}</span>
+          <span class="v">${esc(p.v)}${p.note ? ` <span class="note">· ${esc(p.note)}</span>` : ""}</span>
+        </li>`).join("")}
+      </ol>`).join("");
+  }
+  render();
+
+  // Citation map: the section stays hidden until citation_map.html is published next to this page.
+  const CITATION_MAP = "citation_map.html";
+  if (location.protocol.startsWith("http")) {
+    fetch(CITATION_MAP, { method: "HEAD", cache: "no-store" }).then(r => {
+      const type = r.headers.get("content-type") || "";
+      if (!r.ok || !type.includes("html")) return;
+      const f = document.createElement("iframe");
+      f.src = CITATION_MAP; f.title = "World map of citing researchers' affiliations"; f.loading = "lazy";
+      document.getElementById("cmap").appendChild(f);
+      document.getElementById("citations").hidden = false;
+      document.getElementById("nav-citations").hidden = false;
+      observe(document.getElementById("citations"));
+    }).catch(() => {});
+  }
+
+  // Highlight the menu item for the section in view
+  const navLinks = [...document.querySelectorAll(".menu a")];
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + e.target.id))); });
+    }, { rootMargin: "-35% 0px -60% 0px" });
+    navLinks.forEach(a => { const el = document.getElementById(a.getAttribute("href").slice(1)); if (el) io.observe(el); });
+    window.__observeSection = el => io.observe(el);
+  }
+  function observe(el){ if (window.__observeSection) window.__observeSection(el); }
+
+  // Portrait placeholder: a pale Voronoi texture like an etched alloy micrograph (hidden once a photo <img> is added).
+  const mark = document.getElementById("mark"), cv = document.getElementById("grains");
+  function toRGB(h){ const c = document.createElement("canvas").getContext("2d"); c.fillStyle = h; const v = c.fillStyle; if (v[0] === "#") return [1,3,5].map(i => parseInt(v.slice(i, i+2), 16)); const m = v.match(/\d+/g); return m ? m.slice(0,3).map(Number) : [255,255,255]; }
+  function draw(){
+    if (mark.querySelector("img")) { cv.hidden = true; mark.querySelector("span").hidden = true; return; }
+    const size = mark.clientWidth || 200, dpr = Math.min(window.devicePixelRatio || 1, 2), W = Math.round(size * dpr);
+    if (!W) return;
+    cv.width = W; cv.height = W;
+    const ctx = cv.getContext("2d"), cs = getComputedStyle(root);
+    const S = toRGB(cs.getPropertyValue("--card").trim()), A = toRGB(cs.getPropertyValue("--bar").trim());
+    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const pts = Array.from({length: 30}, () => [rnd() * W, rnd() * W, rnd()]);
+    const img = ctx.createImageData(W, W);
+    for (let y = 0; y < W; y++) for (let x = 0; x < W; x++) {
+      let d1 = 1e9, d2 = 1e9, k = 0;
+      for (let i = 0; i < pts.length; i++) { const dx = x - pts[i][0], dy = y - pts[i][1], d = dx*dx + dy*dy; if (d < d1) { d2 = d1; d1 = d; k = i; } else if (d < d2) d2 = d; }
+      const t = (Math.sqrt(d2) - Math.sqrt(d1)) < 1.2 * dpr ? 0.32 : 0.04 + pts[k][2] * 0.1;
+      const o = (y * W + x) * 4;
+      img.data[o] = S[0] + (A[0] - S[0]) * t; img.data[o+1] = S[1] + (A[1] - S[1]) * t; img.data[o+2] = S[2] + (A[2] - S[2]) * t; img.data[o+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  const redraw = () => { try { draw(); } catch(e) {} };
+  redraw();
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  if (mq.addEventListener) mq.addEventListener("change", () => { redraw(); paint(); });
+  new MutationObserver(redraw).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>
+</body>
+</html>
