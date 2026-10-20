@@ -189,7 +189,9 @@ p{margin:0; max-width:70ch}
 @media (max-width:820px){ .service{grid-template-columns:minmax(0,1fr)} }
 
 footer{border-top:5px solid var(--rule); padding-block:32px 40px; font-size:0.9rem; color:var(--faint)}
-footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+footer .container{display:flex; flex-direction:column; gap:14px}
+footer .contact{margin-top:0}
+.foot-meta{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
 </style>
 
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -229,11 +231,6 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
             <dt>Seeking</dt>
             <dd><b>Research Scientist / Engineer</b> roles in Physical AI &amp; Robotics, Agentic AI, LLM Post-Training, Multimodal AI, and AI for Science.</dd>
           </dl>
-          <div class="contact">
-            <code id="email-text">josephyin999@gmail.com</code>
-            <button class="copy" id="copy-email" type="button">Copy</button>
-            <span id="text-links"></span>
-          </div>
         </div>
         <div class="portrait" id="mark" aria-hidden="true"><canvas id="grains"></canvas><span>BY</span></div>
       </div>
@@ -401,10 +398,17 @@ footer .container{display:flex; flex-wrap:wrap; justify-content:space-between; g
   </section>
 </main>
 
-<footer>
+<footer id="contact">
   <div class="container">
-    <span>© 2026 Biao (Joseph) Yin · San Jose, California</span>
-    <span>Last updated October 2026</span>
+    <div class="contact">
+      <code id="email-text">josephyin999@gmail.com</code>
+      <button class="copy" id="copy-email" type="button">Copy</button>
+      <span id="text-links"></span>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Biao (Joseph) Yin · San Jose, California</span>
+      <span>Last updated October 2026</span>
+    </div>
   </div>
 </footer>
 
