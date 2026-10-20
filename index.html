@@ -165,6 +165,23 @@ p{margin:0; max-width:70ch}
 .themes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:36px}
 .themes .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
 @media (max-width:760px){ .themes{grid-template-columns:minmax(0,1fr)} }
+.track{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:28px; margin-top:28px; align-items:start}
+.track:not(:has(.fig)){grid-template-columns:minmax(0,1fr)}
+.track-body{display:flex; flex-direction:column; gap:12px; min-width:0}
+.mod{font:600 0.72rem var(--font-sans); letter-spacing:0.22em; text-transform:uppercase; color:var(--c-science); margin:0}
+#track-nlp .mod{color:var(--c-clinical)} #track-signals .mod{color:var(--c-ml)}
+.kw{list-style:none; margin:2px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.kw li{font-size:0.84rem; font-weight:600; padding:3px 11px; border-radius:999px; background:var(--bg); border:1px solid var(--line); color:var(--navy)}
+.impact{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; font-size:0.97rem}
+.impact li{position:relative; padding-left:20px}
+.impact li::before{content:""; position:absolute; left:2px; top:0.6em; width:6px; height:6px; border-radius:50%; background:var(--bullet)}
+.keypapers{font-size:0.88rem; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:2px}
+.keypapers span{font-weight:700; color:var(--ink); margin-right:6px}
+.track-figs{display:flex; flex-direction:column; gap:14px; min-width:0}
+.fig{margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--bg)}
+.fig img{display:block; width:100%; height:auto}
+.fig figcaption{font-size:0.78rem; color:var(--faint); padding:6px 10px; border-top:1px solid var(--line); background:var(--card)}
+@media (max-width:820px){ .track{grid-template-columns:minmax(0,1fr)} }
 .featured{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:24px}
 .proj{margin:0; padding:0; overflow:hidden; display:flex; flex-direction:column}
 .proj .shot{aspect-ratio:16/10; background:var(--bg); border-bottom:1px solid var(--line); overflow:hidden}
@@ -228,7 +245,7 @@ footer .contact{margin-top:0}
     <ul class="menu">
       <li><a href="#home">Home</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="#research">Research</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#publications">Publications</a></li>
       <li id="nav-citations" hidden><a href="#citations">Citations</a></li>
     </ul>
@@ -325,47 +342,65 @@ footer .contact{margin-top:0}
     </div>
   </section>
 
-  <section id="research" aria-labelledby="research-h">
+  <section id="achievements" aria-labelledby="ach-h">
     <div class="container">
-      <p class="eyebrow">Research</p>
-      <h2 id="research-h">From the lab bench to the bedside</h2>
-      <p class="lede">I develop <b>data-efficient and trustworthy AI methods</b> for decisions that rest on small, noisy, multimodal real-world data.</p>
-      <div class="themes">
-        <article class="card">
-          <h3>Responsible LLMs and agents for healthcare</h3>
-          <p>Post-training open LLMs (QLoRA, DPO, GRPO, adversarial alignment) to extract social determinants of health from clinical notes, with subgroup audits across race, sex, and payer. Engineering multimodal multi-agent systems that keep clinicians in control.</p>
-        </article>
-        <article class="card">
-          <h3>Signals, notes, and EHR in one model</h3>
-          <p>Aligning smartwatch streams with continuous glucose traces to warn of hypoglycemia, an event with under 1% positive rate. A ClinicalBERT model with a gated multimodal unit that weighs notes and structured EHR per patient.</p>
-        </article>
-        <article class="card">
-          <h3>Deep learning on small scientific image sets</h3>
-          <p>Lightweight, simple yet effective models for millimeter-scale corrosion: detection with <b>self-supervised learning</b>, segmentation of thin, low-contrast boundaries with <b>scientist-infused learning</b>, and <b>lab-to-real transfer</b> from accelerated indoor tests to outdoor exposure. Also a promptable GAN that generates aluminum alloy microstructures in seconds instead of weeks of casting trials.</p>
-        </article>
-        <article class="card">
-          <h3>Learning from noisy and partial labels</h3>
-          <p>Comparing where humans and neural networks attend in text, and using human attention as supervision. Extending the same expert-in-the-loop idea to label denoising and LLM-assisted annotation.</p>
-        </article>
-      </div>
-      <div class="featured">
-        <figure class="card proj" id="proj-moss">
-          <div class="shot"><img src="figures/moss.png" alt="MOSS platform: corrosion images, exposure metadata, and model predictions in one interface" loading="lazy" onerror="this.closest('.shot').remove()"></div>
-          <figcaption>
-            <span class="venue">CIKM 2023 · Demo</span>
-            <h3>MOSS</h3>
-            <p>An AI platform for discovering corrosion-resistant materials. Scientists upload panel images and exposure metadata, the models score corrosion, and a visual-analytics view tracks results over years of testing. Shipped on web and iOS/iPadOS for the U.S. Army, PPG, and ASM International.</p>
-          </figcaption>
-        </figure>
-        <figure class="card proj" id="proj-deepsc">
-          <div class="shot"><img src="figures/deepsc-edge.png" alt="DeepSC-Edge: corrosion segmentation with edge guidance on thin, low-contrast boundaries" loading="lazy" onerror="this.closest('.shot').remove()"></div>
-          <figcaption>
-            <span class="venue">ICMLA 2023</span>
-            <h3>DeepSC-Edge</h3>
-            <p>Scientist-infused corrosion segmentation. Expert edge labels guide the decoder and a class-balanced loss recovers thin, low-contrast boundaries, so a lightweight U-Net beats Transformers on small, severely imbalanced data.</p>
-          </figcaption>
-        </figure>
-      </div>
+      <p class="eyebrow">Achievements</p>
+      <h2 id="ach-h">Research that ships</h2>
+      <p class="lede">Product-oriented AI across <b>vision</b>, <b>language</b>, and <b>signals</b>, built for small, noisy data and used outside the lab.</p>
+
+      <article class="track card" id="track-vision">
+        <div class="track-body">
+          <p class="mod">Vision</p>
+          <h3>Scientific image AI for materials</h3>
+          <ul class="kw"><li>Self-supervised detection</li><li>Scientist-infused segmentation</li><li>Lab-to-real transfer</li><li>Generative microstructures</li></ul>
+          <ul class="impact">
+            <li><b>MOSS</b> platform on web and iOS, in use at the U.S. Army Florida test field and PPG</li>
+            <li>Lightweight U-Net beats Transformers on small, imbalanced expert labels</li>
+            <li>Alloy microstructures generated in seconds instead of weeks of casting</li>
+          </ul>
+          <p class="keypapers"><span>Key papers</span> DeepSC-Edge, ICMLA 2023 · MOSS, CIKM 2023 · AlloyGAN, ICMLA 2023 · Corrosion Image Data Set, BMVC 2021</p>
+        </div>
+        <div class="track-figs">
+          <figure class="fig"><img src="figures/deepsc-edge.png" alt="DeepSC-Edge segmentation results" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>DeepSC-Edge, ICMLA 2023</figcaption></figure>
+          <figure class="fig"><img src="figures/moss.png" alt="MOSS platform interface" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>MOSS, CIKM 2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="track card" id="track-nlp">
+        <div class="track-body">
+          <p class="mod">NLP &amp; LLMs</p>
+          <h3>Trustworthy clinical language models</h3>
+          <ul class="kw"><li>LLM post-training (QLoRA, DPO, GRPO)</li><li>Fairness alignment</li><li>Clinical notes + EHR fusion</li><li>Multimodal agents with harness</li></ul>
+          <ul class="impact">
+            <li>Social-determinants extraction: macro-F1 up ~15 points across Mistral, Llama, DeepSeek, and Qwen</li>
+            <li>Subgroup audits across race, sex, and payer built into training and evaluation</li>
+            <li>Design map for multimodal multi-agent systems in healthcare</li>
+          </ul>
+          <p class="keypapers"><span>Key papers</span> SDOH extraction with LLMs, AMIA 2025 · Multimodal Multi-Agent Systems, npj Digital Medicine 2026 · Human Attention Maps, ACL 2020</p>
+        </div>
+        <div class="track-figs">
+          <figure class="fig"><img src="figures/sdoh-llm.png" alt="LLM pipeline for social determinants of health" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>SDOH extraction, AMIA 2025</figcaption></figure>
+          <figure class="fig"><img src="figures/agents.png" alt="Multimodal multi-agent systems in healthcare" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>npj Digital Medicine 2026</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="track card" id="track-signals">
+        <div class="track-body">
+          <p class="mod">Signals</p>
+          <h3>Rare events and on-device personalization</h3>
+          <ul class="kw"><li>Wearable rare-event prediction</li><li>Smartwatch–CGM alignment</li><li>On-device inference</li><li>Pen-trajectory screening</li></ul>
+          <ul class="impact">
+            <li>~70% early-warning recall for hypoglycemia at a &lt;1% event rate</li>
+            <li>Microsecond on-device personalization for 20%+ of global English Fire TV traffic</li>
+            <li>Cognitive screening from pen strokes: issued patent, in clinical use</li>
+          </ul>
+          <p class="keypapers"><span>Key work</span> Smartwatch hypoglycemia prediction (in submission) · Alexa on-device rewrite (Amazon) · Patent CN109409329A (iFlytek)</p>
+        </div>
+        <div class="track-figs">
+          <figure class="fig"><img src="figures/hypoglycemia.png" alt="Smartwatch signals aligned with continuous glucose traces" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Smartwatch hypoglycemia warning</figcaption></figure>
+        </div>
+      </article>
+
       <p class="exploring"><b>Currently exploring:</b> multimodal agents, test-time training, sim-to-real transfer, self-improving loops, graph agents, causal ML, world models, positive-unlabeled learning, and closed-loop scientific discovery.</p>
     </div>
   </section>
