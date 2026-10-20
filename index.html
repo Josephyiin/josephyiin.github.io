@@ -165,6 +165,14 @@ p{margin:0; max-width:70ch}
 .themes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:36px}
 .themes .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
 @media (max-width:760px){ .themes{grid-template-columns:minmax(0,1fr)} }
+.featured{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:24px}
+.proj{margin:0; padding:0; overflow:hidden; display:flex; flex-direction:column}
+.proj .shot{aspect-ratio:16/10; background:var(--bg); border-bottom:1px solid var(--line); overflow:hidden}
+.proj .shot img{display:block; width:100%; height:100%; object-fit:cover}
+.proj figcaption{padding:22px 26px 26px; display:flex; flex-direction:column; gap:6px}
+.proj .venue{font:600 0.7rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c-science)}
+.proj p{color:var(--muted); font-size:0.98rem}
+@media (max-width:760px){ .featured{grid-template-columns:minmax(0,1fr)} }
 .exploring{margin-top:28px; color:var(--muted)}
 .exploring b{color:var(--ink); font-weight:600}
 
@@ -219,7 +227,6 @@ footer .contact{margin-top:0}
     <a class="brand" href="#home">Biao (Joseph) Yin</a>
     <ul class="menu">
       <li><a href="#home">Home</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
@@ -295,61 +302,6 @@ footer .contact{margin-top:0}
     </div>
   </section>
 
-  <section id="experience" aria-labelledby="exp-h">
-    <div class="container">
-      <p class="eyebrow">Experience</p>
-      <h2 id="exp-h">Experience</h2>
-      <ol class="roles">
-        <li class="card role">
-          <span class="when">2024 – now</span>
-          <div>
-            <h3>Senior AI Research Scientist</h3>
-            <p class="org">UMass Chan Medical School · Worcester, MA</p>
-            <ul>
-              <li>Led end-to-end LLM post-training for social-determinants extraction across Mistral, Llama, DeepSeek, and Qwen, raising macro-F1 by about 15 points from a ~75% baseline.</li>
-              <li>Built the smartwatch-to-CGM pipeline for non-invasive hypoglycemia warning, reaching ~70% early-warning recall on a sub-1% event without growing model size or inference cost.</li>
-              <li>Set up training and evaluation infrastructure for clinical LLMs and agents: DDP vs. DeepSpeed ZeRO-3 trade-offs, KV caching, calibration, and subgroup audits.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2022</span>
-          <div>
-            <h3>Research Scientist II Intern</h3>
-            <p class="org">Amazon, Alexa Devices · Boston, MA</p>
-            <ul><li>Built an on-device dynamic-inference pipeline for real-time Alexa rewrite recommendation under device constraints, serving personalization at microsecond latency for over 20% of global English Fire TV traffic.</li></ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2019 – 2024</span>
-          <div>
-            <h3>AI R&amp;D Lead · Ph.D. Researcher</h3>
-            <p class="org">Worcester Polytechnic Institute, via U.S. Army DEVCOM contract</p>
-            <ul>
-              <li>Led AI research and delivery for the U.S. Army, PPG, and ASM International, coordinating 100+ students, engineers, scientists, and PMs over five years.</li>
-              <li>Trained edge-ready models on small, severely imbalanced, expert-labeled data and shipped them in MOSS, a web and iOS/iPadOS inspection platform for scientists and technicians.</li>
-              <li>Contributed the ML behind the MIL-PRF-32662 performance-specification platform and ASM Handbook guidance on AI-driven materials analytics. Gave 4 invited talks on materials recovery for defense supply resiliency.</li>
-              <li>Dissertation: <i>Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</i>. Advisor: Prof. Elke Rundensteiner.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="card role">
-          <span class="when">2018</span>
-          <div>
-            <h3>Core Technology Researcher Intern</h3>
-            <p class="org">iFlytek AI Lab · Hefei, China</p>
-            <ul><li>Classified figure-copying correctness from stroke-level pen features to automate early cognitive-impairment screening. Issued as patent CN109409329A and in clinical use at USTC-affiliated hospitals.</li></ul>
-          </div>
-        </li>
-      </ol>
-      <div class="service">
-        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
-        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
-        <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section id="news" aria-labelledby="news-h">
     <div class="container">
       <p class="eyebrow">News</p>
@@ -396,6 +348,24 @@ footer .contact{margin-top:0}
           <p>Comparing where humans and neural networks attend in text, and using human attention as supervision. Extending the same expert-in-the-loop idea to label denoising and LLM-assisted annotation.</p>
         </article>
       </div>
+      <div class="featured">
+        <figure class="card proj" id="proj-moss">
+          <div class="shot"><img src="figures/moss.png" alt="MOSS platform: corrosion images, exposure metadata, and model predictions in one interface" loading="lazy" onerror="this.closest('.shot').remove()"></div>
+          <figcaption>
+            <span class="venue">CIKM 2023 · Demo</span>
+            <h3>MOSS</h3>
+            <p>An AI platform for discovering corrosion-resistant materials. Scientists upload panel images and exposure metadata, the models score corrosion, and a visual-analytics view tracks results over years of testing. Shipped on web and iOS/iPadOS for the U.S. Army, PPG, and ASM International.</p>
+          </figcaption>
+        </figure>
+        <figure class="card proj" id="proj-deepsc">
+          <div class="shot"><img src="figures/deepsc-edge.png" alt="DeepSC-Edge: corrosion segmentation with edge guidance on thin, low-contrast boundaries" loading="lazy" onerror="this.closest('.shot').remove()"></div>
+          <figcaption>
+            <span class="venue">ICMLA 2023</span>
+            <h3>DeepSC-Edge</h3>
+            <p>Scientist-infused corrosion segmentation. Expert edge labels guide the decoder and a class-balanced loss recovers thin, low-contrast boundaries, so a lightweight U-Net beats Transformers on small, severely imbalanced data.</p>
+          </figcaption>
+        </figure>
+      </div>
       <p class="exploring"><b>Currently exploring:</b> multimodal agents, test-time training, sim-to-real transfer, self-improving loops, graph agents, causal ML, world models, positive-unlabeled learning, and closed-loop scientific discovery.</p>
     </div>
   </section>
@@ -407,6 +377,18 @@ footer .contact{margin-top:0}
       <p class="legend">† first author · author lists abbreviated · <a id="scholar-inline" href="https://scholar.google.com/citations?user=PyuaaWAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
       <div class="chips" role="group" aria-label="Filter publications by area" id="filters"></div>
       <div id="pub-list"></div>
+    </div>
+  </section>
+
+  <section id="service" aria-labelledby="svc-h">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h2 id="svc-h">Service &amp; recognition</h2>
+      <div class="service">
+        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
+        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
+        <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
+      </div>
     </div>
   </section>
 
