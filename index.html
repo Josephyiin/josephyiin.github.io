@@ -165,6 +165,24 @@ p{margin:0; max-width:70ch}
 .themes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:36px}
 .themes .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
 @media (max-width:760px){ .themes{grid-template-columns:minmax(0,1fr)} }
+.area{font-family:var(--font-sans); font-style:normal; font-weight:600; font-size:0.78rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--navy); margin:40px 0 0; padding-bottom:10px; border-bottom:1px solid var(--line)}
+.dirs{display:flex; flex-direction:column; gap:24px; margin-top:20px}
+.dir{padding:0; overflow:hidden; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); align-items:stretch}
+.dir:not(:has(.dir-fig)){grid-template-columns:minmax(0,1fr)}
+.dir-fig{order:2; margin:0; border-left:1px solid var(--line); background:var(--bg); display:flex; flex-direction:column}
+.dir-fig img{display:block; width:100%; height:auto; background:#fff}
+.dir-fig .play img{aspect-ratio:16/9; object-fit:cover}
+.dir-fig{justify-content:center}
+.dir-fig figcaption{font-size:0.76rem; color:var(--faint); padding:6px 14px; background:var(--card); border-top:1px solid var(--line)}
+.dir-fig .play{position:relative; display:block}
+.dir-fig .play::after{content:""; position:absolute; left:50%; top:50%; width:64px; height:64px; margin:-32px 0 0 -32px; border-radius:50%; background:rgba(20,30,45,0.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 7l8 5-8 5z'/%3E%3C/svg%3E") center/32px no-repeat}
+.dir-body{padding:28px 32px 28px; display:flex; flex-direction:column; gap:10px; min-width:0}
+.dir-body h3{font-size:1.6rem}
+.dir-body p{color:var(--ink); font-size:1rem; max-width:60ch}
+.rep{margin-top:auto !important; padding-top:12px; border-top:1px solid var(--line); font-size:0.9rem !important; color:var(--muted) !important}
+.rep span{display:block; font:600 0.68rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--faint); margin-bottom:3px}
+.rep i{color:var(--ink)}
+@media (max-width:820px){ .dir{grid-template-columns:minmax(0,1fr)} .dir-fig{order:-1; border:0; border-bottom:1px solid var(--line)} }
 .track{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:28px; margin-top:28px; align-items:start}
 .track:not(:has(.fig)){grid-template-columns:minmax(0,1fr)}
 .track-body{display:flex; flex-direction:column; gap:12px; min-width:0}
@@ -245,9 +263,9 @@ footer .contact{margin-top:0}
     <a class="brand" href="#home">Biao (Joseph) Yin, PhD</a>
     <ul class="menu">
       <li><a href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#news">News</a></li>
       <li id="nav-citations" hidden><a href="#citations">Citations</a></li>
     </ul>
     <ul class="icons" id="icons"></ul>
@@ -321,87 +339,67 @@ footer .contact{margin-top:0}
     </div>
   </section>
 
-  <section id="news" aria-labelledby="news-h">
+  <section id="research" aria-labelledby="research-h">
     <div class="container">
-      <p class="eyebrow">News</p>
-      <h2 id="news-h">What's new</h2>
-      <ul class="news">
-        <li><span class="d">2026</span><span>Published <i>Multimodal Multi-Agent Systems in Healthcare</i> in npj Digital Medicine.</span></li>
-        <li><span class="d">2026</span><span>Published <i>AI-Enabled Decision Support Systems in Epilepsy Surgery</i> in npj Health Systems.</span></li>
-        <li><span class="d">2026</span><span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i> accepted at AMIA 2026.</span></li>
-        <li><span class="d">2026</span><span>Book chapter <i>Smart AI-Driven Materials Science Analytics</i> published in the ASM Handbook.</span></li>
-        <li><span class="d">2025</span><span>Presented <i>Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</i> at AMIA 2025.</span></li>
-        <li><span class="d">2024</span><span>Joined UMass Chan Medical School as a Senior AI Research Scientist, after completing my Ph.D. in Data Science at WPI.</span></li>
-      </ul>
-      <details class="more" id="more-news">
-        <summary>More</summary>
-        <ul class="news">
-          <li><span class="d">2025</span><span><i>Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation</i> at ICMLA 2025.</span></li>
-          <li><span class="d">2023</span><span><i>MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</i> at CIKM 2023.</span></li>
-          <li><span class="d">2023</span><span><i>AlloyGAN</i> and <i>DeepSC-Edge</i> at ICMLA 2023.</span></li>
-          <li><span class="d">2021</span><span><i>Corrosion Image Data Set for Automating Scientific Assessment of Materials</i> at BMVC 2021.</span></li>
-          <li><span class="d">2020</span><span><i>Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</i> at ACL 2020.</span></li>
-        </ul>
-      </details>
-    </div>
-  </section>
+      <p class="eyebrow">Research</p>
+      <h2 id="research-h">Research directions</h2>
+      <p class="lede">I work on machine learning for small, noisy, multimodal data in two areas: materials testing for defense, and healthcare. Each direction below links to one representative paper; the full list is under Publications.</p>
 
-  <section id="achievements" aria-labelledby="ach-h">
-    <div class="container">
-      <p class="eyebrow">Achievements</p>
-      <h2 id="ach-h">Research that ships</h2>
-      <p class="lede">Product-oriented AI across <b>vision</b>, <b>language</b>, and <b>signals</b>, built for small, noisy data and used outside the lab.</p>
+      <h3 class="area">Materials and defense</h3>
+      <div class="dirs">
+        <article class="dir card" id="dir-moss">
+          <figure class="dir-fig"><img src="figures/moss.jpg" alt="MOSS architecture: mobile app for technicians, web app for researchers, unified database, deep learning models, and weather API" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>MOSS platform: mobile data collection, web analysis, and a shared backend with deep-learning models. Fig. 2, CIKM 2023</figcaption></figure>
+          <div class="dir-body">
+            <h3>Field-deployed AI for military materials testing</h3>
+            <p>I built MOSS, a web and iOS app that rates corrosion on metal test panels from photos. Scientists use it at the U.S. Army's Florida test site and at PPG.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a></i> CIKM 2023 · <a href="https://www.youtube.com/watch?v=CzcxMMRsxkE" target="_blank" rel="noopener">demo video</a></p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-deepsc">
+          <figure class="dir-fig"><img src="figures/deepsc-edge.jpg" alt="Corrosion panel images with their segmentation masks, grouped by difficulty" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Hard cases in the corrosion dataset: thin, discontinuous, and stained scribes with their masks. Fig. 1, DeepSC-Edge (ICMLA 2023), © 2023 IEEE</figcaption></figure>
+          <div class="dir-body">
+            <h3>Data-efficient learning from expert labels</h3>
+            <p>Corrosion boundaries are thin and labeled images are few. I designed edge-guided and class-balanced losses that use experts' edge annotations, so a lightweight U-Net outperforms Transformers on this small, imbalanced dataset.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://openreview.net/pdf?id=yy91kQvfYf" target="_blank" rel="noopener">DeepSC-Edge: Scientific Corrosion Segmentation with Edge-Guided and Class-Balanced Losses</a></i> ICMLA 2023</p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-sim2real">
+          <figure class="dir-fig"><img src="figures/sim-to-real.jpg" alt="Corrosion test panels: indoor laboratory tests on top, outdoor field tests below" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Top: indoor laboratory tests. Bottom: outdoor field tests. Fig. 1, ICMLA 2022, © 2022 IEEE</figcaption></figure>
+          <div class="dir-body">
+            <h3>Sim-to-real transfer</h3>
+            <p>Labeled corrosion images are plentiful from indoor lab tests but scarce from outdoor field tests. We trained on indoor images and used domain adaptation to rate outdoor images without outdoor labels, improving accuracy by 27% over a no-adaptation baseline.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://ieeexplore.ieee.org/document/10069858" target="_blank" rel="noopener">Transferring Indoor Corrosion Image Assessment Models to Outdoor Images via Domain Adaptation</a></i> ICMLA 2022</p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-alloygan">
+          <figure class="dir-fig"><img src="figures/alloygan.jpg" alt="AlloyGAN workflow: alloy composition prompt, microstructure database, generated images, and scientist verification" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Composition in, microstructure images out, verified by materials scientists. Fig. 1, ICMLA 2023, © 2023 IEEE</figcaption></figure>
+          <div class="dir-body">
+            <h3>Generative design of materials</h3>
+            <p>AlloyGAN generates aluminum alloy microstructure images from composition and casting conditions in seconds, replacing weeks of casting trials during early exploration.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://openreview.net/pdf?id=Np5y8JWP7Y" target="_blank" rel="noopener">AlloyGAN: Domain-Promptable Generative Adversarial Network for Generating Aluminum Alloy Microstructures</a></i> ICMLA 2023</p>
+          </div>
+        </article>
+      </div>
 
-      <article class="track card" id="track-vision">
-        <div class="track-body">
-          <p class="mod">Vision</p>
-          <h3>Scientific image AI for materials</h3>
-          <ul class="kw"><li>Self-supervised detection</li><li>Scientist-infused segmentation</li><li>Sim-to-real transfer</li><li>Generative microstructures</li></ul>
-          <ul class="impact">
-            <li><b>MOSS</b> platform on web and iOS, in use at the U.S. Army Florida test field and PPG</li>
-            <li>Lightweight U-Net beats Transformers on small, imbalanced expert labels</li>
-            <li>Alloy microstructures generated in seconds instead of weeks of casting</li>
-          </ul>
-        </div>
-        <div class="track-figs">
-          <figure class="fig"><img src="figures/deepsc-edge.png" alt="DeepSC-Edge segmentation results" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Edge-guided corrosion segmentation</figcaption></figure>
-          <figure class="fig"><img src="figures/sim-to-real.png" alt="Indoor-to-outdoor domain adaptation for corrosion images" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Sim-to-real transfer: indoor lab images to outdoor field images</figcaption></figure>
-          <figure class="fig"><img src="figures/moss.png" alt="MOSS platform interface" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>MOSS inspection app</figcaption></figure>
-        </div>
-      </article>
-
-      <article class="track card" id="track-nlp">
-        <div class="track-body">
-          <p class="mod">NLP &amp; LLMs</p>
-          <h3>Trustworthy clinical language models</h3>
-          <ul class="kw"><li>LLM post-training (QLoRA, DPO, GRPO)</li><li>Fairness alignment</li><li>Clinical notes + EHR fusion</li><li>Multimodal agents with harness</li></ul>
-          <ul class="impact">
-            <li>Social-determinants extraction: macro-F1 up ~15 points across Mistral, Llama, DeepSeek, and Qwen</li>
-            <li>Subgroup audits across race, sex, and payer built into training and evaluation</li>
-            <li>Design map for multimodal multi-agent systems in healthcare</li>
-          </ul>
-        </div>
-        <div class="track-figs">
-          <figure class="fig"><img src="figures/agents.png" alt="Multimodal multi-agent systems in healthcare" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Multimodal multi-agent systems in healthcare</figcaption></figure>
-          <figure class="fig"><img src="figures/sdoh-llm.png" alt="LLM pipeline for social determinants of health" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>LLM extraction of social determinants of health</figcaption></figure>
-        </div>
-      </article>
-
-      <article class="track card" id="track-signals">
-        <div class="track-body">
-          <p class="mod">Signals</p>
-          <h3>Rare events and on-device personalization</h3>
-          <ul class="kw"><li>Wearable rare-event prediction</li><li>Smartwatch–CGM alignment</li><li>On-device inference</li><li>Pen-trajectory screening</li></ul>
-          <ul class="impact">
-            <li>~70% early-warning recall for hypoglycemia at a &lt;1% event rate</li>
-            <li>Microsecond on-device personalization for 20%+ of global English Fire TV traffic</li>
-            <li>Cognitive screening from pen strokes: issued patent, in clinical use</li>
-          </ul>
-        </div>
-        <div class="track-figs">
-          <figure class="fig"><img src="figures/hypoglycemia.png" alt="Smartwatch signals aligned with continuous glucose traces" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Smartwatch hypoglycemia warning</figcaption></figure>
-        </div>
-      </article>
+      <h3 class="area">Healthcare</h3>
+      <div class="dirs">
+        <article class="dir card" id="dir-sdoh">
+          <figure class="dir-fig"><img src="figures/sdoh-llm.jpg" alt="Table of macro and micro F1, precision, and recall for RoBERTa, Llama, Mistral, DeepSeek, GPT-3.5, and GPT-4o" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Test performance (macro / micro) across fine-tuned and few-shot models. Table 2, AMIA 2025 poster</figcaption></figure>
+          <div class="dir-body">
+            <h3>Trustworthy clinical LLMs</h3>
+            <p>I fine-tuned LLMs (Llama, Mistral, DeepSeek, GPT-3.5, GPT-4o) to extract social determinants of health from 1,877 clinical notes. Fine-tuned GPT-4o reached macro-F1 0.90, up from 0.75 for a RoBERTa baseline; Mistral-7B led the open-source models at 0.82.</p>
+            <p class="rep"><span>Representative paper</span><i>Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</i> AMIA 2025</p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-agents">
+          <figure class="dir-fig"><img src="figures/agents.jpg" alt="Overview of multimodal AI agent systems in healthcare: applications, agent systems, models, fusion strategies, tools, and data" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Overview of multimodal AI agent systems in healthcare. Fig. 1, Yu et al., npj Digital Medicine 2026, CC BY 4.0</figcaption></figure>
+          <div class="dir-body">
+            <h3>Multimodal agents in healthcare</h3>
+            <p>A scoping review I co-authored maps how multimodal AI agents are built and evaluated in healthcare, and where clinical evidence and safety checks are still missing.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></i> npj Digital Medicine 2026</p>
+          </div>
+        </article>
+      </div>
 
       <p class="exploring"><b>Currently exploring:</b> multimodal agents, test-time training, sim-to-real transfer, self-improving loops, graph agents, causal ML, world models, positive-unlabeled learning, and closed-loop scientific discovery.</p>
     </div>
@@ -426,6 +424,31 @@ footer .contact{margin-top:0}
         <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
         <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="news" aria-labelledby="news-h">
+    <div class="container">
+      <p class="eyebrow">News</p>
+      <h2 id="news-h">What's new</h2>
+      <ul class="news">
+        <li><span class="d">2026</span><span>Published <i><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></i> in npj Digital Medicine.</span></li>
+        <li><span class="d">2026</span><span>Published <i><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a></i> in npj Health Systems.</span></li>
+        <li><span class="d">2026</span><span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i> accepted at AMIA 2026.</span></li>
+        <li><span class="d">2026</span><span>Book chapter <i><a href="https://connect.asminternational.org/discussion/smart-ai-driven-materials-science-analytics-for-corrosion-analysis" target="_blank" rel="noopener">Smart AI-Driven Materials Science Analytics</a></i> published in the ASM Handbook.</span></li>
+        <li><span class="d">2025</span><span>Presented <i>Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</i> at AMIA 2025.</span></li>
+        <li><span class="d">2024</span><span>Joined UMass Chan Medical School as a Senior AI Research Scientist, after completing my Ph.D. in Data Science at WPI.</span></li>
+      </ul>
+      <details class="more" id="more-news">
+        <summary>More</summary>
+        <ul class="news">
+          <li><span class="d">2025</span><span><i><a href="https://ieeexplore.ieee.org/document/11471386" target="_blank" rel="noopener">Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation</a></i> at ICMLA 2025.</span></li>
+          <li><span class="d">2023</span><span><i><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a></i> at CIKM 2023.</span></li>
+          <li><span class="d">2023</span><span><i><a href="https://openreview.net/pdf?id=Np5y8JWP7Y" target="_blank" rel="noopener">AlloyGAN</a></i> and <i><a href="https://openreview.net/pdf?id=yy91kQvfYf" target="_blank" rel="noopener">DeepSC-Edge</a></i> at ICMLA 2023.</span></li>
+          <li><span class="d">2021</span><span><i><a href="https://www.bmva-archive.org.uk/bmvc/2021/assets/papers/1544.pdf" target="_blank" rel="noopener">Corrosion Image Data Set for Automating Scientific Assessment of Materials</a></i> at BMVC 2021.</span></li>
+          <li><span class="d">2020</span><span><i><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</a></i> at ACL 2020.</span></li>
+        </ul>
+      </details>
     </div>
   </section>
 
@@ -469,24 +492,25 @@ const PUBS = [
   { y:"Under review", tag:"clinical", first:true,  t:"Noninvasive Smartwatch-Based Hypoglycemia Prediction Using Machine Learning", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
   { y:"Under review", tag:"clinical", first:true,  t:"Multimodal Multilabel Deep Learning for Identification of Opioid Use Disorder Using Clinical Notes and Structured EHR", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
   { y:"Under review", tag:"clinical", first:false, t:"Fairness Assessment and Bias Mitigation in Cardiovascular Risk Prediction for Type 2 Diabetes", a:"… <b>B. Yin</b>, et al.", v:"Manuscript in submission" },
-  { y:"2026", tag:"clinical", first:false, t:"Multimodal Multi-Agent Systems in Healthcare", a:"… <b>B. Yin</b>, et al.", v:"npj Digital Medicine" },
-  { y:"2026", tag:"clinical", first:false, t:"AI-Enabled Decision Support Systems in Epilepsy Surgery", a:"… <b>B. Yin</b>, et al.", v:"npj Health Systems" },
+  { y:"2026", tag:"clinical", first:false, t:"Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review", a:"K. Yu, S. Zhou, … <b>B. Yin</b>, … R. Zhang", v:"npj Digital Medicine", l:"https://www.nature.com/articles/s41746-026-03060-z" },
+  { y:"2026", tag:"clinical", first:false, t:"AI-Enabled Decision Support Systems in Epilepsy Surgery", a:"… <b>B. Yin</b>, et al.", v:"npj Health Systems", l:"https://www.nature.com/articles/s44401-026-00103-1" },
   { y:"2026", tag:"clinical", first:false, t:"Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models", a:"P. Rivera, <b>B. Yin</b>, et al.", v:"AMIA Annual Symposium" },
-  { y:"2026", tag:"science",  first:false, t:"Smart AI-Driven Materials Science Analytics", a:"C. Thomas, <b>B. Yin</b>, et al.", v:"ASM Handbook" },
+  { y:"2026", tag:"science",  first:false, t:"Smart AI-Driven Materials Science Analytics", a:"C. Thomas, <b>B. Yin</b>, et al.", v:"ASM Handbook", l:"https://connect.asminternational.org/discussion/smart-ai-driven-materials-science-analytics-for-corrosion-analysis" },
   { y:"2025", tag:"clinical", first:true,  t:"Extracting Social Determinants of Health from Clinical Notes Using Large Language Models", a:"<b>B. Yin</b>, et al.", v:"AMIA Annual Symposium" },
-  { y:"2025", tag:"science",  first:false, t:"Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation", a:"… <b>B. Yin</b>, et al.", v:"ICMLA" },
-  { y:"2024", tag:"science",  first:false, t:"Learning to Adapt Deep Corrosion Assessment Models from Indoor to Outdoor Image Domains", a:"N. Josselyn, <b>B. Yin</b>, et al.", v:"IEEE Access" },
+  { y:"2025", tag:"science",  first:false, t:"Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation", a:"… <b>B. Yin</b>, et al.", v:"ICMLA", l:"https://ieeexplore.ieee.org/document/11471386" },
+  { y:"2024", tag:"science",  first:false, t:"Learning to Adapt Deep Corrosion Assessment Models from Indoor to Outdoor Image Domains", a:"N. Josselyn, <b>B. Yin</b>, et al.", v:"IEEE Access", l:"https://ieeexplore.ieee.org/abstract/document/10942351" },
   { y:"2024", tag:"ml",       first:false, t:"Understanding Hyperbolic Metric Learning through Hard Negative Sampling", a:"Y. Yue, … <b>B. Yin</b>, et al.", v:"WACV" },
-  { y:"2023", tag:"science",  first:true,  t:"AlloyGAN: Domain-Promptable Generative Adversarial Network for Generating Aluminum Alloy Microstructures", a:"<b>B. Yin</b>, et al.", v:"ICMLA", note:"extended at TMS 2024" },
-  { y:"2023", tag:"science",  first:true,  t:"DeepSC-Edge: Scientific Corrosion Segmentation with Edge-Guided and Class-Balanced Losses", a:"<b>B. Yin</b>, et al.", v:"ICMLA" },
-  { y:"2023", tag:"science",  first:true,  t:"MOSS: AI Platform for Discovery of Corrosion-Resistant Materials", a:"<b>B. Yin</b>, et al.", v:"CIKM", note:"demo" },
+  { y:"2023", tag:"science",  first:true,  t:"AlloyGAN: Domain-Promptable Generative Adversarial Network for Generating Aluminum Alloy Microstructures", a:"<b>B. Yin</b>, et al.", v:"ICMLA", note:"extended at TMS 2024", l:"https://openreview.net/pdf?id=Np5y8JWP7Y" },
+  { y:"2023", tag:"science",  first:true,  t:"DeepSC-Edge: Scientific Corrosion Segmentation with Edge-Guided and Class-Balanced Losses", a:"<b>B. Yin</b>, et al.", v:"ICMLA", l:"https://openreview.net/pdf?id=yy91kQvfYf" },
+  { y:"2023", tag:"science",  first:true,  t:"MOSS: AI Platform for Discovery of Corrosion-Resistant Materials", a:"<b>B. Yin</b>, et al.", v:"CIKM", note:"demo", l:"https://dl.acm.org/doi/10.1145/3583780.3614748" },
   { y:"2023", tag:"ml",       first:false, t:"PRISE: Demystifying Deep Lucas-Kanade with Strongly Star-Convex Constraints for Multimodal Image Alignment", a:"Y. Zhang, … <b>B. Yin</b>, et al.", v:"CVPR" },
-  { y:"2023", tag:"science",  first:false, t:"MIL-PRF-32662 Context-Aware Agile Platform", a:"R. Jensen, … <b>B. Yin</b>, E. Rundensteiner", v:"U.S. Army Technical Report" },
-  { y:"2021", tag:"science",  first:true,  t:"Corrosion Image Data Set for Automating Scientific Assessment of Materials", a:"<b>B. Yin</b>, et al.", v:"BMVC" },
+  { y:"2023", tag:"science",  first:false, t:"MIL-PRF-32662 Context-Aware Agile Platform", a:"R. Jensen, … <b>B. Yin</b>, E. Rundensteiner", v:"U.S. Army Technical Report", l:"https://drive.google.com/file/d/1pUMJySDxBCXTb9BS_NyXohwgeUKBm3jM/view" },
+  { y:"2022", tag:"science",  first:false, t:"Transferring Indoor Corrosion Image Assessment Models to Outdoor Images via Domain Adaptation", a:"N. Josselyn, <b>B. Yin</b>, et al.", v:"ICMLA", l:"https://ieeexplore.ieee.org/document/10069858" },
+  { y:"2021", tag:"science",  first:true,  t:"Corrosion Image Data Set for Automating Scientific Assessment of Materials", a:"<b>B. Yin</b>, et al.", v:"BMVC", l:"https://www.bmva-archive.org.uk/bmvc/2021/assets/papers/1544.pdf" },
   { y:"2021", tag:"ml",       first:false, t:"ELITE: Robust Deep Anomaly Detection with Meta Gradient", a:"H. Zhang, … <b>B. Yin</b>, et al.", v:"KDD" },
-  { y:"2020", tag:"ml",       first:false, t:"Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?", a:"C. Sen, T. Hartvigsen, <b>B. Yin</b>, et al.", v:"ACL" },
-  { y:"2020", tag:"science",  first:true,  t:"Corrosion Assessment: Data Mining for Quantifying Associations between Indoor Accelerated and Outdoor Natural Tests", a:"<b>B. Yin</b>, et al.", v:"IEEE BigData Workshop" },
-  { y:"2018", tag:"clinical", first:false, t:"Automatic Discriminant Analysis of Graphic Problems Based on Tracked Points", a:"F. Xu, <b>B. Yin</b>, et al.", v:"Patent CN109409329A", note:"iFlytek, issued" },
+  { y:"2020", tag:"ml",       first:false, t:"Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?", a:"C. Sen, T. Hartvigsen, <b>B. Yin</b>, et al.", v:"ACL", l:"https://aclanthology.org/2020.acl-main.419.pdf" },
+  { y:"2020", tag:"science",  first:true,  t:"Corrosion Assessment: Data Mining for Quantifying Associations between Indoor Accelerated and Outdoor Natural Tests", a:"<b>B. Yin</b>, et al.", v:"IEEE BigData Workshop", l:"https://ieeexplore.ieee.org/document/9378175/" },
+  { y:"2018", tag:"clinical", first:false, t:"Automatic Discriminant Analysis of Graphic Problems Based on Tracked Points", a:"F. Xu, <b>B. Yin</b>, et al.", v:"Patent CN109409329A", note:"iFlytek, issued", l:"https://patents.google.com/patent/CN109409329A/en" },
   { y:"2017", tag:"learning", first:true,  t:"Observing Personalizations in Learning: Identifying Heterogeneous Treatment Effects Using Causal Trees", a:"<b>B. Yin</b>, et al.", v:"ACM Learning @ Scale" },
   { y:"2017", tag:"learning", first:true,  t:"Causal Forest vs. Naive Causal Forest in Detecting Personalization: An Empirical Study in ASSISTments", a:"<b>B. Yin</b>, et al.", v:"Educational Data Mining" },
   { y:"2017", tag:"learning", first:false, t:"Using “Snapshots” of Student Performance to Model Wheel Spinning", a:"S. A. Adjei, A. F. Botelho, T. Patikorn, <b>B. Yin</b>, J. E. Beck", v:"Educational Data Mining" }
@@ -581,7 +605,7 @@ const TAGS = [
       <ol class="pubs">${items.filter(p => p.y === y).map(p => `
         <li class="pub" data-tag="${p.tag}">
           <span class="tag">${esc(tagName(p.tag))}</span>
-          <span class="t">${esc(p.t)}${p.first ? '<sup title="First author">†</sup>' : ""}</span>
+          <span class="t">${p.l ? `<a href="${esc(p.l)}" target="_blank" rel="noopener">${esc(p.t)}</a>` : esc(p.t)}${p.first ? '<sup title="First author">†</sup>' : ""}</span>
           <span class="a">${p.a}</span>
           <span class="v">${esc(p.v)}${p.note ? ` <span class="note">· ${esc(p.note)}</span>` : ""}</span>
         </li>`).join("")}
