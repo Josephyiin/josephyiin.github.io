@@ -191,6 +191,11 @@ p{margin:0; max-width:70ch}
 .jump{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px}
 .jump a{--c:var(--navy); font:600 0.8rem var(--font-sans); color:var(--c); text-decoration:none; border:1px solid color-mix(in srgb, var(--c) 45%, transparent); border-radius:999px; padding:8px 16px; transition:background .15s, color .15s}
 .jump a[data-area="health"]{--c:var(--c-clinical)}
+.jump a[data-area="physical"]{--c:var(--c-learning)}
+.dir-fig .fig-row{display:flex; gap:12px; padding:12px; border-top:1px solid var(--line); background:#fff; align-items:center}
+.dir-fig .fig-row img{min-width:0; height:auto}
+.dir-fig .fig-row img:first-child{flex:0 0 26%}
+.dir-fig .fig-row img:last-child{flex:1 1 auto; width:0}
 .jump a:hover, .jump a:focus-visible{background:var(--c); border-color:var(--c); color:var(--card)}
 .dir{scroll-margin-top:96px}
 @media (max-width:820px){ .dir{scroll-margin-top:140px} }
@@ -347,13 +352,13 @@ footer .contact{margin-top:0}
       <div class="tri card">
         <figure class="tri-fig" aria-label="Research focus triangle">
           <svg viewBox="-95 0 610 384" role="img" aria-labelledby="tri-t">
-            <title id="tri-t">Three constraints around one goal: on-device small models, limited expert data, and multimodality toward multi-agents, centered on efficient and trustworthy AI in the physical world</title>
+            <title id="tri-t">Three constraints around one goal: open, lightweight on-device models, limited expert data, and multimodality toward multi-agents, centered on efficient and trustworthy AI in the physical world</title>
             <polygon class="tri-edge" points="210,70 52,312 368,312"/>
             <circle class="tri-v v1" cx="210" cy="70" r="20"/><text class="tri-n" x="210" y="76">1</text>
             <circle class="tri-v v2" cx="52" cy="312" r="20"/><text class="tri-n" x="52" y="318">2</text>
             <circle class="tri-v v3" cx="368" cy="312" r="20"/><text class="tri-n" x="368" y="318">3</text>
-            <text class="tri-l" x="210" y="30">On-device small models</text>
-            <text class="tri-l" x="52" y="366">Limited expert data</text>
+            <text class="tri-l" x="210" y="30">Open, lightweight on-device models</text>
+            <text class="tri-l" x="52" y="366">Limited data, rare events</text>
             <text class="tri-l" x="368" y="366">Multimodal → agents</text>
             <text class="tri-c" x="210" y="208">Efficient &amp;</text>
             <text class="tri-c" x="210" y="238">trustworthy AI</text>
@@ -363,8 +368,8 @@ footer .contact{margin-top:0}
         <div class="tri-body">
           <h3>Research focus</h3>
           <ol class="tri-list">
-            <li class="v1"><b>On-device small models.</b> Lightweight models that run where the data is: a U-Net that beats Transformers on corrosion segmentation, the MOSS iOS app, and on-device personalization for Alexa.</li>
-            <li class="v2"><b>Limited data from human experts.</b> Few labels, but expert ones: 600 expert-rated panels, experts' edge annotations built into the loss, and 1 to 3 labeled field examples for sim-to-real transfer.</li>
+            <li class="v1"><b>Open, lightweight on-device models.</b> Open, lightweight models that run where the data is: a U-Net that outperforms Transformers on corrosion segmentation, open LLMs fine-tuned for clinical notes, the MOSS iOS app, on-device personalization for Alexa, and a Gemma 4 E2B agent that runs fully on a phone and drives a robot toy.</li>
+            <li class="v2"><b>Limited data, rare events.</b> Few labels, but expert ones, and the cases that matter most are rare: 600 expert-rated panels, edge-guided and class-balanced losses for imbalanced data, 1 to 3 labeled field examples for sim-to-real transfer, and rare-event prediction from wearables.</li>
             <li class="v3"><b>Multimodality, toward multi-agents.</b> From fusing images, metadata, and weather (MOSS) and clinical notes with EHR, to multimodal agents in healthcare.</li>
           </ol>
         </div>
@@ -385,7 +390,7 @@ footer .contact{margin-top:0}
       <h2 id="expertise-h">Areas of expertise</h2>
       <p class="lede">I work on machine learning for small, noisy, multimodal data in two areas: materials testing for defense, and healthcare. In each area, the model learns from a specific human signal, noted under each title. This started with my ACL 2020 work asking <i><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Do Humans and Neural Networks Focus on the Same Words?</a></i> Each area links to its representative papers; the full list is under Publications.</p>
       <nav class="jump" aria-label="Areas of expertise">
-        <a href="#dir-moss">Field-deployed AI for science</a><a href="#dir-deepsc">Data-efficient learning</a><a href="#dir-sim2real">Sim-to-real transfer</a><a href="#dir-alloygan">Generative materials design</a><a href="#dir-sdoh" data-area="health">Trustworthy clinical LLMs</a><a href="#dir-agents" data-area="health">Multimodal agents</a>
+        <a href="#dir-moss">Field-deployed AI for science</a><a href="#dir-deepsc">Data-efficient learning</a><a href="#dir-sim2real">Sim-to-real transfer</a><a href="#dir-alloygan">Generative materials design</a><a href="#dir-sdoh" data-area="health">Trustworthy clinical LLMs</a><a href="#dir-agents" data-area="health">Multimodal agents</a><a href="#dir-petoi" data-area="physical">On-device agent for family play</a>
       </nav>
 
       <h3 class="area">Materials and defense</h3>
@@ -452,6 +457,19 @@ footer .contact{margin-top:0}
         </article>
       </div>
 
+      <h3 class="area">Physical AI</h3>
+      <div class="dirs">
+        <article class="dir card" id="dir-petoi">
+          <figure class="dir-fig"><img src="figures/petoi-arch.jpg" alt="Family Petoi architecture: phone camera, Gemma 4 E2B on-device, a state machine, then the Petoi robot for the child and a spoken card for the parent" loading="lazy" onerror="this.remove()"><figcaption>One Android phone is the eyes, the brain, and the coach. No cloud in the loop.</figcaption><div class="fig-row"><img src="figures/petoi-phone.jpg" alt="Phone app showing camera detections of the robot dog and a water bottle, with a Gemma-generated play suggestion" loading="lazy" onerror="this.remove()"><img src="figures/petoi-play.jpg" alt="The toy leads and the parent joins: toy, child, and parent around shared play" loading="lazy" onerror="this.remove()"></div><figcaption>Live demo on the phone (Gemma on CPU) and the play loop: the toy leads, the parent joins</figcaption></figure>
+          <div class="dir-body">
+            <h3>On-device agent for family play</h3>
+            <p class="signal"><span>Human signal</span>How children play and how parents join in</p>
+            <p>Family Petoi runs Gemma 4 E2B fully on an Android phone with LiteRT-LM. The camera watches playtime, Gemma turns each frame into a small JSON state, and a state machine drives a Petoi robot dog over Bluetooth to draw the child in, while the parent gets one-line play cues through on-device speech. Nothing goes to the cloud, so a child's video never leaves the room, and Gemma fills safe templates instead of writing freely to a child.</p>
+            <p class="rep"><span>Project</span><i>Family Petoi</i>, Google Gemma Hardware Hackathon, AGI House, October 2026. With Xi Jia Zhou, Kidd Su, and Ever Wong</p>
+          </div>
+        </article>
+      </div>
+
       <p class="exploring"><b>Currently exploring:</b> multimodal agents, test-time training, sim-to-real transfer, self-improving loops, graph agents, causal ML, world models, positive-unlabeled learning, and closed-loop scientific discovery.</p>
     </div>
   </section>
@@ -483,6 +501,7 @@ footer .contact{margin-top:0}
       <p class="eyebrow">News</p>
       <h2 id="news-h">What's new</h2>
       <ul class="news">
+        <li><span class="d">2026</span><span>Built <a href="#dir-petoi">Family Petoi</a>, a fully on-device Gemma 4 E2B agent that drives a Petoi robot toy for family play, with Xi Jia Zhou, Kidd Su, and Ever Wong at the Google Gemma Hardware Hackathon, AGI House.</span></li>
         <li><span class="d">2026</span><span>Published <i><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></i> in npj Digital Medicine (Nature Portfolio).</span></li>
         <li><span class="d">2026</span><span>Published <i><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a></i> in npj Health Systems (Nature Portfolio).</span></li>
         <li><span class="d">2026</span><span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i> accepted at AMIA 2026.</span></li>
