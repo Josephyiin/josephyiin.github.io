@@ -147,12 +147,12 @@ p{margin:0; max-width:70ch}
 /* Recent highlights */
 .recent{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:6px 24px; align-items:start; margin-top:30px; padding:16px 22px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--c-clinical); border-radius:10px}
 .recent-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c-clinical); padding-top:3px}
-.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.recent li{display:flex; flex-direction:column; gap:1px; line-height:1.4}
-.recent .venue{font-size:0.82rem; font-weight:600; color:var(--muted)}
-.recent .venue em{font-style:normal; color:var(--c-clinical)}
-.recent li a, .recent li i, .recent li b{font-weight:600; color:var(--ink); font-style:normal}
-.recent .spons{font-size:0.82rem; color:var(--muted)}
+.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
+.recent li{display:flex; flex-direction:column; gap:2px; line-height:1.4}
+.recent .hl{font:700 1.08rem var(--font-sans); color:var(--ink)}
+.recent .hl em{font-style:normal; font-size:1.15rem; color:var(--c-clinical)}
+.recent li a, .recent li i{font-weight:500; font-size:0.97rem; color:var(--ink); font-style:normal}
+.recent .meta{font-size:0.82rem; color:var(--muted)}
 .recent-all{font-size:0.88rem; white-space:nowrap; padding-top:2px}
 @media (max-width:640px){ .recent{grid-template-columns:minmax(0,1fr)} }
 /* Path (4 steps) */
@@ -363,11 +363,12 @@ footer .contact{margin-top:0}
       <div class="recent" aria-label="Recent highlights">
         <p class="recent-h">Recent</p>
         <ul>
-          <li><span class="venue">npj Digital Medicine <em>(Nature Portfolio)</em> · 2026</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></li>
-          <li><span class="venue">npj Health Systems <em>(Nature Portfolio)</em> · 2026</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a></li>
-          <li><span class="venue">AMIA Annual Symposium · 2026</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
-          <li><span class="venue">AMIA Annual Symposium · 2025</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
-          <li><span class="venue">Ph.D. Dissertation in Data Science, Worcester Polytechnic Institute · 2024</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="spons">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation</span></li>
+          <li><span class="hl"><em>Finalist</em> at the Google Gemma Hardware Hackathon: Build the Future of Edge &amp; Physical AI</span><a href="#dir-petoi">Family Petoi, a fully on-device Gemma 4 agent that drives a robot toy</a><span class="meta">Sponsored by Google DeepMind × AGI House, with NVIDIA and Qualcomm · October 2026</span></li>
+          <li><span class="hl"><em>Nature Portfolio</em> · npj Digital Medicine</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a><span class="meta">2026</span></li>
+          <li><span class="hl"><em>Nature Portfolio</em> · npj Health Systems</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a><span class="meta">2026</span></li>
+          <li><span class="hl"><em>AMIA 2026</em> · Annual Symposium</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
+          <li><span class="hl"><em>AMIA 2025</em> · Annual Symposium</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
+          <li><span class="hl"><em>Ph.D. Dissertation</em> · Data Science, Worcester Polytechnic Institute</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="meta">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation · 2024</span></li>
         </ul>
         <a class="recent-all" href="#news">All news →</a>
       </div>
