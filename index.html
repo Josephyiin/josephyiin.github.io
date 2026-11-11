@@ -97,9 +97,9 @@ p{margin:0; max-width:70ch}
 .bullets li::before{content:""; position:absolute; left:2px; top:0.62em; width:7px; height:7px; border-radius:50%; background:var(--bullet)}
 
 /* ---------- Home ---------- */
-.home{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:40px; align-items:start}
-.home .recent{margin-top:0; grid-template-columns:minmax(0,1fr); gap:10px}
-@media (max-width:1000px){ .home{grid-template-columns:minmax(0,1fr); gap:0} .home .recent{margin-top:30px} }
+.home{display:block}
+.home::after{content:""; display:block; clear:both}
+.home .lede, .home .facts{max-width:880px}
 .side-col{order:-1; margin-top:36px; justify-self:start; width:220px; display:flex; flex-direction:column; align-items:center; gap:26px}
 .portrait{float:left; margin:10px 30px 14px 8px; position:relative; width:136px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line)}
 .achv{width:100%; border-top:1px solid var(--line); padding-top:16px}
@@ -145,17 +145,18 @@ p{margin:0; max-width:70ch}
 .stats b{font-family:var(--font-serif); font-weight:400; font-size:2.3rem; line-height:1; color:var(--navy); font-variant-numeric:tabular-nums}
 .stats span{font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:6px}
 
-/* Recent highlights */
-.recent{display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 24px; align-items:start; margin-top:30px; padding:16px 22px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--c-clinical); border-radius:10px}
-.recent-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c-clinical); padding-top:3px}
-.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.recent li{display:flex; flex-direction:column; gap:1px; line-height:1.35}
-.recent .hl{font:700 0.92rem var(--font-sans); color:var(--ink)}
-.recent .hl em{font-style:normal; font-size:1rem; color:var(--c-clinical)}
-.recent li a, .recent li i, .recent li b{font-weight:500; font-size:0.86rem; color:var(--ink); font-style:normal}
-.recent .meta{font-size:0.74rem; color:var(--muted)}
-.recent-all{font-size:0.88rem; white-space:nowrap; padding-top:2px}
-@media (max-width:640px){ .recent{grid-template-columns:minmax(0,1fr)} }
+/* Key News */
+.recent{margin-top:34px; padding:22px 26px 24px; background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c-clinical); border-radius:10px}
+.recent-h{font:600 0.74rem var(--font-sans); letter-spacing:0.22em; text-transform:uppercase; color:var(--c-clinical); margin:0 0 14px}
+.recent ul{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px 28px}
+.recent li{display:flex; flex-direction:column; gap:3px; line-height:1.35; padding-top:12px; border-top:1px solid var(--line)}
+.recent .hl{font:600 0.8rem var(--font-sans); color:var(--muted)}
+.recent .hl em{display:block; font-style:normal; font:700 1.02rem var(--font-sans); color:var(--c-clinical); margin-bottom:1px}
+.recent li a, .recent li i, .recent li b{font:500 0.9rem/1.35 var(--font-sans); color:var(--ink); text-decoration:none; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.recent li a:hover{text-decoration:underline}
+.recent .meta{font-size:0.74rem; color:var(--faint); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+@media (max-width:900px){ .recent ul{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:560px){ .recent ul{grid-template-columns:minmax(0,1fr)} .recent{padding:18px 18px 20px} }
 /* Path (4 steps) */
 .path{list-style:none; margin:32px 0 0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px}
 .path li{display:flex; flex-direction:column; gap:4px; padding-top:18px; border-top:2px solid var(--line)}
@@ -355,21 +356,21 @@ footer .contact{margin-top:0}
             <dd><b>On-device personalization</b> for Amazon Alexa Rewrite; human cognitive screening automation invented at iFlytek Co. (issued patent with product in clinical use)</dd>
           </dl>
         </div>
+      </div>
 
-        <div class="recent" aria-label="Recent highlights">
-          <p class="recent-h">Key News</p>
-          <ul>
-            <li><span class="hl"><em>Finalist</em> · Google DeepMind × AGI House</span><a href="#dir-petoi">Family Petoi, a fully on-device Gemma 4 agent that drives a robot toy</a><span class="meta">Google Gemma Hardware Hackathon: Build the Future of Edge &amp; Physical AI · October 2026</span></li>
-            <li><span class="hl"><em>AAAI 2026</em> · AAAI Conference on Artificial Intelligence</span><b class="role-line">Program Chair / Reviewer</b></li>
-            <li><span class="hl"><em>Nature Portfolio</em> · npj Digital Medicine</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a><span class="meta">Journal publication · Published 2026</span></li>
-            <li><span class="hl"><em>Nature Portfolio</em> · npj Health Systems</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a><span class="meta">Journal publication · Published 2026</span></li>
-            <li><span class="hl"><em>AMIA 2026</em> · Annual Symposium</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
-            <li><span class="hl"><em>AMIA 2025</em> · Annual Symposium</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
-            <li><span class="hl"><em>Ph.D. Dissertation</em> · Data Science, Worcester Polytechnic Institute</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="meta">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation · 2024</span></li>
-            <li><span class="hl"><em>CIKM 2023</em> · ACM International Conference on Information and Knowledge Management</span><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a><span class="meta">Paper Presentation · Session Chair · Program Chair</span></li>
-            <li><span class="hl"><em>ACL 2020</em> · Annual Meeting of the Association for Computational Linguistics</span><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</a></li>
-          </ul>
-        </div>
+      <div class="recent" aria-label="Recent highlights">
+        <p class="recent-h">Key News</p>
+        <ul>
+          <li><span class="hl"><em>Finalist</em>Google DeepMind × AGI House</span><a href="#dir-petoi">Family Petoi, a fully on-device Gemma 4 agent that drives a robot toy</a><span class="meta">Google Gemma Hardware Hackathon: Build the Future of Edge &amp; Physical AI · October 2026</span></li>
+          <li><span class="hl"><em>AAAI 2026</em>AAAI Conference on Artificial Intelligence</span><b class="role-line">Program Chair / Reviewer</b></li>
+          <li><span class="hl"><em>Nature Portfolio</em>npj Digital Medicine</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a><span class="meta">Journal publication · Published 2026</span></li>
+          <li><span class="hl"><em>Nature Portfolio</em>npj Health Systems</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a><span class="meta">Journal publication · Published 2026</span></li>
+          <li><span class="hl"><em>AMIA 2026</em>Annual Symposium</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
+          <li><span class="hl"><em>AMIA 2025</em>Annual Symposium</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
+          <li><span class="hl"><em>Ph.D. Dissertation</em>Data Science, Worcester Polytechnic Institute</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="meta">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation · 2024</span></li>
+          <li><span class="hl"><em>CIKM 2023</em>ACM International Conference on Information and Knowledge Management</span><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a><span class="meta">Paper Presentation · Session Chair · Program Chair</span></li>
+          <li><span class="hl"><em>ACL 2020</em>Annual Meeting of the Association for Computational Linguistics</span><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</a></li>
+        </ul>
       </div>
 
       <ol class="path" aria-label="Path">
