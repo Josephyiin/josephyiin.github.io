@@ -97,8 +97,9 @@ p{margin:0; max-width:70ch}
 .bullets li::before{content:""; position:absolute; left:2px; top:0.62em; width:7px; height:7px; border-radius:50%; background:var(--bullet)}
 
 /* ---------- Home ---------- */
-.home{display:block}
-.home::after{content:""; display:block; clear:both}
+.home{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:40px; align-items:start}
+.home .recent{margin-top:0; grid-template-columns:minmax(0,1fr); gap:10px}
+@media (max-width:1000px){ .home{grid-template-columns:minmax(0,1fr); gap:0} .home .recent{margin-top:30px} }
 .side-col{order:-1; margin-top:36px; justify-self:start; width:220px; display:flex; flex-direction:column; align-items:center; gap:26px}
 .portrait{float:left; margin:10px 30px 14px 8px; position:relative; width:136px; aspect-ratio:1; border-radius:50%; overflow:hidden; background:var(--card); box-shadow:0 0 0 6px var(--card), 0 0 0 7px var(--line)}
 .achv{width:100%; border-top:1px solid var(--line); padding-top:16px}
@@ -147,12 +148,12 @@ p{margin:0; max-width:70ch}
 /* Recent highlights */
 .recent{display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 24px; align-items:start; margin-top:30px; padding:16px 22px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--c-clinical); border-radius:10px}
 .recent-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c-clinical); padding-top:3px}
-.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
-.recent li{display:flex; flex-direction:column; gap:2px; line-height:1.4}
-.recent .hl{font:700 1.08rem var(--font-sans); color:var(--ink)}
-.recent .hl em{font-style:normal; font-size:1.15rem; color:var(--c-clinical)}
-.recent li a, .recent li i{font-weight:500; font-size:0.97rem; color:var(--ink); font-style:normal}
-.recent .meta{font-size:0.82rem; color:var(--muted)}
+.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.recent li{display:flex; flex-direction:column; gap:1px; line-height:1.35}
+.recent .hl{font:700 0.92rem var(--font-sans); color:var(--ink)}
+.recent .hl em{font-style:normal; font-size:1rem; color:var(--c-clinical)}
+.recent li a, .recent li i, .recent li b{font-weight:500; font-size:0.86rem; color:var(--ink); font-style:normal}
+.recent .meta{font-size:0.74rem; color:var(--muted)}
 .recent-all{font-size:0.88rem; white-space:nowrap; padding-top:2px}
 @media (max-width:640px){ .recent{grid-template-columns:minmax(0,1fr)} }
 /* Path (4 steps) */
@@ -176,24 +177,25 @@ p{margin:0; max-width:70ch}
 @media (max-width:520px){ .news li{grid-template-columns:minmax(0,1fr)} }
 
 /* Focus triangle */
-.tri{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:32px; align-items:center; margin-top:28px}
+.tri{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:32px; align-items:center; margin-top:32px; padding:36px 40px}
 .tri-fig{margin:0}
-.tri-fig svg{display:block; width:100%; max-width:500px; height:auto; margin:0 auto}
+.tri-fig svg{display:block; width:100%; max-width:620px; height:auto; margin:0 auto}
 .tri-edge{fill:color-mix(in srgb, var(--navy) 6%, transparent); stroke:var(--line); stroke-width:2}
 .tri-v{stroke:var(--card); stroke-width:3}
 .tri-v.v1{fill:var(--c-ml)} .tri-v.v2{fill:var(--c-learning)} .tri-v.v3{fill:var(--c-clinical)}
 .tri-n{font:700 17px var(--font-sans); fill:var(--card); text-anchor:middle}
-.tri-l{font:600 20px var(--font-sans); fill:var(--ink); text-anchor:middle}
-.tri-c{font:500 27px var(--font-serif); fill:var(--navy); text-anchor:middle}
+.tri-l{font:600 22px var(--font-sans); fill:var(--ink); text-anchor:middle}
+.tri-c{font:500 30px var(--font-serif); fill:var(--navy); text-anchor:middle}
 .tri-s{font:400 18px var(--font-sans); fill:var(--muted); text-anchor:middle}
-.tri-body h3{font-size:1.5rem}
-.tri-list{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:14px}
-.tri-list li{position:relative; padding-left:34px; color:var(--muted); font-size:0.98rem; counter-increment:tri}
+.tri-body h3{font-size:1.9rem}
+.tri-list{list-style:none; margin:18px 0 0; padding:0; display:flex; flex-direction:column; gap:18px}
+.tri-list li{position:relative; padding-left:38px; color:var(--muted); font-size:1.08rem; counter-increment:tri}
 .tri-list li b{color:var(--ink)}
-.tri-list li::before{content:counter(tri); position:absolute; left:0; top:1px; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font:700 0.75rem var(--font-sans); color:var(--card); background:var(--c-ml)}
+.tri-list li::before{content:counter(tri); position:absolute; left:0; top:1px; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font:700 0.82rem var(--font-sans); color:var(--card); background:var(--c-ml)}
 .tri-list li.v2::before{background:var(--c-learning)} .tri-list li.v3::before{background:var(--c-clinical)}
 .tri-list{counter-reset:tri}
-@media (max-width:820px){ .tri{grid-template-columns:minmax(0,1fr); gap:18px} .tri-l{font-size:25px} .tri-c{font-size:30px} .tri-s{font-size:21px} }
+.tri-more{margin-top:14px; padding-left:0; font-style:italic; color:var(--muted); font-size:1.02rem}
+@media (max-width:820px){ .tri{grid-template-columns:minmax(0,1fr); gap:18px; padding:26px 22px} .tri-l{font-size:25px} .tri-c{font-size:30px} .tri-s{font-size:21px} }
 /* Expertise */
 .themes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; margin-top:36px}
 .themes .card p{color:var(--muted); margin-top:10px; font-size:0.98rem}
@@ -230,6 +232,12 @@ p{margin:0; max-width:70ch}
 .dir-body p{color:var(--ink); font-size:1rem; max-width:60ch}
 .body-fig{margin:6px 0 0}
 .body-fig img{display:block; width:100%; height:auto; border-radius:8px}
+.petoi-left{text-align:center}
+.petoi-left img{margin:0 auto; max-width:140px; border:1px solid var(--line)}
+.body-fig .fig-row{display:flex; gap:10px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px}
+.body-fig .fig-row img{min-width:0; height:auto; border-radius:4px}
+.body-fig .fig-row img:first-child{flex:0 0 28%}
+.body-fig .fig-row img:last-child{flex:1 1 auto; width:0}
 .body-fig figcaption{font-size:0.76rem; color:var(--faint); margin-top:6px}
 .signal{font-size:0.88rem !important; color:var(--muted) !important; margin-top:-2px}
 .signal span{font:600 0.66rem var(--font-sans); letter-spacing:0.18em; text-transform:uppercase; color:var(--c-clinical); margin-right:10px}
@@ -347,21 +355,21 @@ footer .contact{margin-top:0}
             <dd><b>On-device personalization</b> for Amazon Alexa Rewrite; human cognitive screening automation invented at iFlytek Co. (issued patent with product in clinical use)</dd>
           </dl>
         </div>
-      </div>
 
-      <div class="recent" aria-label="Recent highlights">
-        <p class="recent-h">Key News</p>
-        <ul>
-          <li><span class="hl"><em>Finalist</em> · Google DeepMind × AGI House</span><a href="#dir-petoi">Family Petoi, a fully on-device Gemma 4 agent that drives a robot toy</a><span class="meta">Google Gemma Hardware Hackathon: Build the Future of Edge &amp; Physical AI · with NVIDIA and Qualcomm · October 2026</span></li>
-          <li><span class="hl"><em>AAAI 2026</em> · AAAI Conference on Artificial Intelligence</span><b class="role-line">Program Chair / Reviewer</b></li>
-          <li><span class="hl"><em>Nature Portfolio</em> · npj Digital Medicine</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a><span class="meta">Journal publication · Published 2026</span></li>
-          <li><span class="hl"><em>Nature Portfolio</em> · npj Health Systems</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a><span class="meta">Journal publication · Published 2026</span></li>
-          <li><span class="hl"><em>AMIA 2026</em> · Annual Symposium</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
-          <li><span class="hl"><em>AMIA 2025</em> · Annual Symposium</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
-          <li><span class="hl"><em>Ph.D. Dissertation</em> · Data Science, Worcester Polytechnic Institute</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="meta">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation · 2024</span></li>
-          <li><span class="hl"><em>CIKM 2023</em> · ACM International Conference on Information and Knowledge Management</span><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a><span class="meta">Paper Presentation · Session Chair · Program Chair</span></li>
-          <li><span class="hl"><em>ACL 2020</em> · Annual Meeting of the Association for Computational Linguistics</span><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</a></li>
-        </ul>
+        <div class="recent" aria-label="Recent highlights">
+          <p class="recent-h">Key News</p>
+          <ul>
+            <li><span class="hl"><em>Finalist</em> · Google DeepMind × AGI House</span><a href="#dir-petoi">Family Petoi, a fully on-device Gemma 4 agent that drives a robot toy</a><span class="meta">Google Gemma Hardware Hackathon: Build the Future of Edge &amp; Physical AI · October 2026</span></li>
+            <li><span class="hl"><em>AAAI 2026</em> · AAAI Conference on Artificial Intelligence</span><b class="role-line">Program Chair / Reviewer</b></li>
+            <li><span class="hl"><em>Nature Portfolio</em> · npj Digital Medicine</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a><span class="meta">Journal publication · Published 2026</span></li>
+            <li><span class="hl"><em>Nature Portfolio</em> · npj Health Systems</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a><span class="meta">Journal publication · Published 2026</span></li>
+            <li><span class="hl"><em>AMIA 2026</em> · Annual Symposium</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
+            <li><span class="hl"><em>AMIA 2025</em> · Annual Symposium</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
+            <li><span class="hl"><em>Ph.D. Dissertation</em> · Data Science, Worcester Polytechnic Institute</span><a href="https://digital.wpi.edu/show/0c483q10c" target="_blank" rel="noopener">Facilitating Scientific Material Discovery via Deep Learning on Small Image Datasets</a><span class="meta">Sponsored by the U.S. Army DEVCOM Army Research Laboratory and the National Science Foundation · 2024</span></li>
+            <li><span class="hl"><em>CIKM 2023</em> · ACM International Conference on Information and Knowledge Management</span><a href="https://dl.acm.org/doi/10.1145/3583780.3614748" target="_blank" rel="noopener">MOSS: AI Platform for Discovery of Corrosion-Resistant Materials</a><span class="meta">Paper Presentation · Session Chair · Program Chair</span></li>
+            <li><span class="hl"><em>ACL 2020</em> · Annual Meeting of the Association for Computational Linguistics</span><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Human Attention Maps for Text Classification: Do Humans and Neural Networks Focus on the Same Words?</a></li>
+          </ul>
+        </div>
       </div>
 
       <ol class="path" aria-label="Path">
@@ -373,27 +381,28 @@ footer .contact{margin-top:0}
 
       <div class="tri card">
         <figure class="tri-fig" aria-label="Research focus triangle">
-          <svg viewBox="-95 0 610 384" role="img" aria-labelledby="tri-t">
-            <title id="tri-t">Three constraints around one goal: open, lightweight on-device models, limited expert data, and multimodality toward multi-agents, centered on efficient and trustworthy AI in the physical world</title>
+          <svg viewBox="-100 10 620 395" role="img" aria-labelledby="tri-t">
+            <title id="tri-t">Three constraints around one goal: rare events with limited annotation, lightweight on-device models, and multimodal fusion with an agentic harness, centered on efficient and trustworthy AI in the physical world</title>
             <polygon class="tri-edge" points="210,70 52,312 368,312"/>
-            <circle class="tri-v v1" cx="210" cy="70" r="20"/><text class="tri-n" x="210" y="76">1</text>
-            <circle class="tri-v v2" cx="52" cy="312" r="20"/><text class="tri-n" x="52" y="318">2</text>
+            <circle class="tri-v v2" cx="210" cy="70" r="20"/><text class="tri-n" x="210" y="76">1</text>
+            <circle class="tri-v v1" cx="52" cy="312" r="20"/><text class="tri-n" x="52" y="318">2</text>
             <circle class="tri-v v3" cx="368" cy="312" r="20"/><text class="tri-n" x="368" y="318">3</text>
-            <text class="tri-l" x="210" y="30">Open, lightweight on-device models</text>
-            <text class="tri-l" x="52" y="366">Limited data, rare events</text>
-            <text class="tri-l" x="368" y="366">Multimodal → agents</text>
+            <text class="tri-l" x="210" y="30">Rare events, limited annotation</text>
+            <text class="tri-l" x="52" y="366">Lightweight,</text><text class="tri-l" x="52" y="392">on-device models</text>
+            <text class="tri-l" x="368" y="366">Multimodal fusion,</text><text class="tri-l" x="368" y="392">agentic harness</text>
             <text class="tri-c" x="210" y="208">Efficient &amp;</text>
-            <text class="tri-c" x="210" y="238">trustworthy AI</text>
+            <text class="tri-c" x="210" y="238">Trustworthy AI</text>
             <text class="tri-s" x="210" y="268">in the physical world</text>
           </svg>
         </figure>
         <div class="tri-body">
           <h3>Research focus</h3>
           <ol class="tri-list">
-            <li class="v1"><b>Open, lightweight on-device models.</b> Open, lightweight models that run where the data is: a U-Net that outperforms Transformers on corrosion segmentation, open LLMs fine-tuned for clinical notes, the MOSS iOS app, on-device personalization for Alexa, and a Gemma 4 E2B agent that runs fully on a phone and drives a robot toy.</li>
-            <li class="v2"><b>Limited data, rare events.</b> Few labels, but expert ones, and the cases that matter most are rare: 600 expert-rated panels, edge-guided and class-balanced losses for imbalanced data, 1 to 3 labeled field examples for sim-to-real transfer, and rare-event prediction from wearables.</li>
-            <li class="v3"><b>Multimodality, toward multi-agents.</b> From fusing images, metadata, and weather (MOSS) and clinical notes with EHR, to multimodal agents in healthcare.</li>
+            <li class="v2"><b>Rare events, limited annotation.</b> Few labels, but expert ones, and the cases that matter most are rare: 600 expert-rated panels, edge-guided and class-balanced losses for imbalanced data, 1 to 3 labeled field examples for sim-to-real transfer, and rare-event prediction from wearables.</li>
+            <li class="v1"><b>Lightweight, on-device models.</b> Lightweight models that run where the data is: a U-Net that outperforms Transformers on corrosion segmentation, open LLMs fine-tuned for clinical notes, the MOSS iOS app, on-device personalization for Alexa, and a Gemma 4 E2B agent that runs fully on a phone and drives a robot toy.</li>
+            <li class="v3"><b>Multimodal fusion, agentic harness.</b> From fusing clinical notes with EHR to multimodal clinical agents built on an agentic harness.</li>
           </ol>
+          <p class="tri-more">and more…</p>
         </div>
       </div>
 
@@ -411,18 +420,45 @@ footer .contact{margin-top:0}
     <div class="container">
       <p class="eyebrow">Expertise</p>
       <h2 id="expertise-h">Areas of expertise</h2>
-      <p class="lede">I work on machine learning for small, noisy, multimodal data in two areas: materials testing for defense, and healthcare. In each area, the model learns from a specific human signal, noted under each title. This started with my ACL 2020 work asking <i><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Do Humans and Neural Networks Focus on the Same Words?</a></i> Each area links to its representative papers; the full list is under Publications.</p>
+      <p class="lede">I work on machine learning for small, noisy, multimodal data in two areas: healthcare, and physical AI for science and defense. In each area, the model learns from human expertise, a thread that started with my ACL 2020 work asking <i><a href="https://aclanthology.org/2020.acl-main.419.pdf" target="_blank" rel="noopener">Do Humans and Neural Networks Focus on the Same Words?</a></i> Each area links to its representative papers; the full list is under Publications.</p>
       <nav class="jump" aria-label="Areas of expertise">
-        <a href="#dir-moss">Field-deployed AI for science</a><a href="#dir-deepsc">Data-efficient learning</a><a href="#dir-sim2real">Sim-to-real transfer</a><a href="#dir-alloygan">Generative materials design</a><a href="#dir-sdoh" data-area="health">Trustworthy clinical LLMs</a><a href="#dir-agents" data-area="health">Multimodal agents</a><a href="#dir-petoi" data-area="physical">On-device agent for family play</a>
+        <a href="#dir-fusion" data-area="health">Multimodal fusion</a><a href="#dir-sdoh" data-area="health">Trustworthy clinical LLMs</a><a href="#dir-agents" data-area="health">Agents and evaluation</a><a href="#dir-moss">Field-deployed AI for science</a><a href="#dir-deepsc">Data-efficient learning</a><a href="#dir-sim2real">Sim-to-real transfer</a><a href="#dir-alloygan">Generative materials design</a><a href="#dir-petoi">On-device agent for family play</a>
       </nav>
 
-      <h3 class="area">Materials and defense</h3>
+      <h3 class="area">Healthcare</h3>
+      <div class="dirs">
+        <article class="dir card" id="dir-fusion">
+          <figure class="dir-fig"><img src="figures/ehr-notes-fusion.jpg" alt="Multimodal framework: structured EHR features and ClinicalBERT note embeddings combined by intermediate or late fusion to predict four opioid phenotypes with a flat or hierarchical classifier" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Structured EHR (74 features) and clinical notes (ClinicalBERT, 768-d) fused to classify opioid-related visits. Fig. 1</figcaption></figure>
+          <div class="dir-body">
+            <h3>Multimodal fusion of EHR and clinical notes</h3>
+            <p>I fuse structured EHR and clinical notes to classify opioid-related emergency visits into four phenotypes, from not opioid-related to intentional overdose.</p>
+            <p class="rep"><span>Representative paper</span><i>Multimodal Deep Phenotyping of Opioid Use Disorder</i> In submission</p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-sdoh">
+          <figure class="dir-fig"><img src="figures/sdoh-llm.jpg" alt="Table of macro and micro F1, precision, and recall for RoBERTa, Llama, Mistral, DeepSeek, GPT-3.5, and GPT-4o" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Test performance (macro / micro) across fine-tuned and few-shot models. Table 2, AMIA 2025 poster</figcaption></figure>
+          <div class="dir-body">
+            <h3>Trustworthy clinical LLMs</h3>
+            <p>I fine-tuned LLMs (Llama, Mistral, DeepSeek, GPT-3.5, GPT-4o) to extract social determinants of health from 1,877 clinical notes. Fine-tuned GPT-4o reached macro-F1 0.90, up from 0.75 for a RoBERTa baseline; Mistral-7B led the open-source models at 0.82. I am now extending this with adversarial alignment and reinforcement learning to make these models fairer across patient groups.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></i> AMIA 2025 (poster)</p>
+          </div>
+        </article>
+        <article class="dir card" id="dir-agents">
+          <figure class="dir-fig"><img src="figures/agents.jpg" alt="Overview of multimodal AI agent systems in healthcare: applications, agent systems, models, fusion strategies, tools, and data" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Overview of multimodal AI agent systems in healthcare. Fig. 1, Yu et al., npj Digital Medicine (Nature Portfolio) 2026, CC BY 4.0</figcaption></figure>
+          <div class="dir-body">
+            <h3>Multimodal agents in healthcare</h3>
+            <p>A scoping review I co-authored maps how multimodal AI agents are built and evaluated in healthcare, and where clinical evidence and safety checks are still missing.</p>
+            <p class="rep"><span>Representative paper</span><i><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></i> npj Digital Medicine (Nature Portfolio) 2026</p>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="area">Physical AI for science and defense</h3>
       <div class="dirs">
         <article class="dir card" id="dir-moss">
           <figure class="dir-fig"><img src="figures/moss.jpg" alt="MOSS architecture: mobile app for technicians, web app for researchers, unified database, deep learning models, and weather API" loading="lazy" onerror="this.remove()"><figcaption>MOSS platform: mobile data collection, web analysis, and a shared backend with deep-learning models. Fig. 2, CIKM 2023</figcaption><a class="play sub" href="https://www.youtube.com/watch?v=CzcxMMRsxkE" target="_blank" rel="noopener" aria-label="Watch the MOSS demo video on YouTube"><img src="https://i.ytimg.com/vi/CzcxMMRsxkE/hqdefault.jpg" alt="MOSS demo video" loading="lazy" onerror="this.parentNode.classList.add('noimg'); this.remove()"><span class="play-label">Watch the demo video</span></a><figcaption>MOSS demo video (YouTube)</figcaption></figure>
           <div class="dir-body">
             <h3>Field-deployed AI for military materials testing</h3>
-            <p class="signal"><span>Human signal</span>Technicians' field workflow and scientists' ASTM rating standard</p>
             <p>I built MOSS, a web and iOS app that rates corrosion on metal test panels from photos. Scientists use it at the U.S. Army's Florida test site and at PPG.</p>
             <p>I led and delivered partner-facing AI systems for PPG, U.S. Army DEVCOM ARL, and ASM International, coordinating 100+ engineers, scientists, and PMs to produce military performance standards, open data, and production-ready applications (<a href="https://arl.wpi.edu" target="_blank" rel="noopener">arl.wpi.edu</a>). One system is under commercialization.</p>
             <figure class="body-fig"><img src="figures/collab.jpg" alt="WPI data science and U.S. Army materials science collaboration: material experiments, database management, data visualization, pattern recognition, model validation, new inventions" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>WPI × U.S. Army collaboration, from material experiments to new inventions</figcaption></figure>
@@ -433,7 +469,6 @@ footer .contact{margin-top:0}
           <figure class="dir-fig"><img src="figures/deepsc-edge.jpg" alt="Corrosion panel images with their segmentation masks, grouped by difficulty" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Hard cases in the corrosion dataset: thin, discontinuous, and stained scribes with their masks. Fig. 1, DeepSC-Edge (ICMLA 2023), © 2023 IEEE</figcaption><img class="sub" src="figures/bmvc-cam.jpg" alt="Grad-CAM heatmaps of four CNNs on one corrosion panel, highlighting the X-shaped scribe" loading="lazy" onerror="this.remove()"><figcaption>Where four CNNs look on the same panel (Grad-CAM; left to right: ResNet-18, ResNet-50, DenseNet, HRNet). Fig. 7, BMVC 2021</figcaption></figure>
           <div class="dir-body">
             <h3>Data-efficient learning from expert labels</h3>
-            <p class="signal"><span>Human signal</span>Experts' edge annotations, built into the loss</p>
             <p>We released an open corrosion image data set: 600 panels with expert ratings from 10 years of lab testing, where trained non-experts failed to match the experts. Corrosion boundaries are thin and labeled images are few. I then designed edge-guided and class-balanced losses that use experts' edge annotations, so a lightweight U-Net outperforms Transformers on this small, imbalanced dataset.</p>
             <p class="rep"><span>Representative papers</span><i><a href="https://www.bmva-archive.org.uk/bmvc/2021/assets/papers/1544.pdf" target="_blank" rel="noopener">Corrosion Image Data Set for Automating Scientific Assessment of Materials</a></i> BMVC 2021<br><i><a href="https://openreview.net/pdf?id=yy91kQvfYf" target="_blank" rel="noopener">DeepSC-Edge: Scientific Corrosion Segmentation with Edge-Guided and Class-Balanced Losses</a></i> ICMLA 2023</p>
           </div>
@@ -442,7 +477,6 @@ footer .contact{margin-top:0}
           <figure class="dir-fig"><img src="figures/lab-vs-field.jpg" alt="Indoor accelerated corrosion test chamber next to outdoor racks of test panels in an exposure field" loading="lazy" onerror="this.remove()"><figcaption>The gap to close: indoor accelerated-test chamber (left) vs. outdoor exposure field (right)</figcaption><img class="sub" src="figures/ensemble-da.jpg" alt="Previous methods train complex ensembles of domain adaptation learners; the proposed method ensembles pre-trained learners with a lightweight model" loading="lazy" onerror="this.remove()"><figcaption>Our method: a lightweight ensemble of pre-trained adaptation models. Fig. 1, ICMLA 2025, © 2025 IEEE</figcaption></figure>
           <div class="dir-body">
             <h3>Sim-to-real transfer</h3>
-            <p class="signal"><span>Human signal</span>1 to 3 expert-labeled field examples</p>
             <p>Labeled corrosion images are plentiful from indoor lab tests but scarce from outdoor field tests. We trained on indoor images and used domain adaptation to rate outdoor images without outdoor labels, improving accuracy by 27% over a no-adaptation baseline. We then ensembled independently trained adaptation models using only 1 to 3 labeled target examples, beating the prior best semi-supervised results on DomainNet (+8.8%, 1-shot) and Office-31 (+15.8%, 1-shot).</p>
             <p class="rep"><span>Representative papers</span><i><a href="https://ieeexplore.ieee.org/document/10069858" target="_blank" rel="noopener">Transferring Indoor Corrosion Image Assessment Models to Outdoor Images via Domain Adaptation</a></i> ICMLA 2022<br><i><a href="https://ieeexplore.ieee.org/document/11471386" target="_blank" rel="noopener">Ensembles of Statistically Independent Models: A Method for Semi-Supervised Domain Adaptation</a></i> ICMLA 2025</p>
           </div>
@@ -451,43 +485,16 @@ footer .contact{margin-top:0}
           <figure class="dir-fig"><img src="figures/alloygan.jpg" alt="AlloyGAN workflow: alloy composition prompt, microstructure database, generated images, and scientist verification" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Composition in, microstructure images out, verified by materials scientists. Fig. 1, ICMLA 2023, © 2023 IEEE</figcaption></figure>
           <div class="dir-body">
             <h3>Generative design of materials</h3>
-            <p class="signal"><span>Human signal</span>Scientists' composition and casting conditions as prompts; outputs verified by materials scientists</p>
             <p>AlloyGAN generates aluminum alloy microstructure images from composition and casting conditions in seconds, replacing weeks of casting trials during early exploration.</p>
             <p class="rep"><span>Representative paper</span><i><a href="https://openreview.net/pdf?id=Np5y8JWP7Y" target="_blank" rel="noopener">AlloyGAN: Domain-Promptable Generative Adversarial Network for Generating Aluminum Alloy Microstructures</a></i> ICMLA 2023</p>
           </div>
         </article>
-      </div>
-
-      <h3 class="area">Healthcare</h3>
-      <div class="dirs">
-        <article class="dir card" id="dir-sdoh">
-          <figure class="dir-fig"><img src="figures/sdoh-llm.jpg" alt="Table of macro and micro F1, precision, and recall for RoBERTa, Llama, Mistral, DeepSeek, GPT-3.5, and GPT-4o" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Test performance (macro / micro) across fine-tuned and few-shot models. Table 2, AMIA 2025 poster</figcaption></figure>
-          <div class="dir-body">
-            <h3>Trustworthy clinical LLMs</h3>
-            <p class="signal"><span>Human signal</span>Human-annotated social needs in 1,877 clinical notes</p>
-            <p>I fine-tuned LLMs (Llama, Mistral, DeepSeek, GPT-3.5, GPT-4o) to extract social determinants of health from 1,877 clinical notes. Fine-tuned GPT-4o reached macro-F1 0.90, up from 0.75 for a RoBERTa baseline; Mistral-7B led the open-source models at 0.82.</p>
-            <p class="rep"><span>Representative paper</span><i><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></i> AMIA 2025 (poster)</p>
-          </div>
-        </article>
-        <article class="dir card" id="dir-agents">
-          <figure class="dir-fig"><img src="figures/agents.jpg" alt="Overview of multimodal AI agent systems in healthcare: applications, agent systems, models, fusion strategies, tools, and data" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Overview of multimodal AI agent systems in healthcare. Fig. 1, Yu et al., npj Digital Medicine (Nature Portfolio) 2026, CC BY 4.0</figcaption></figure>
-          <div class="dir-body">
-            <h3>Multimodal agents in healthcare</h3>
-            <p class="signal"><span>Human signal</span>How clinicians combine notes, images, and signals in decisions</p>
-            <p>A scoping review I co-authored maps how multimodal AI agents are built and evaluated in healthcare, and where clinical evidence and safety checks are still missing.</p>
-            <p class="rep"><span>Representative paper</span><i><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></i> npj Digital Medicine (Nature Portfolio) 2026</p>
-          </div>
-        </article>
-      </div>
-
-      <h3 class="area">Physical AI</h3>
-      <div class="dirs">
         <article class="dir card" id="dir-petoi">
-          <figure class="dir-fig"><img src="figures/petoi-arch.jpg" alt="Family Petoi architecture: phone camera, Gemma 4 E2B on-device, a state machine, then the Petoi robot for the child and a spoken card for the parent" loading="lazy" onerror="this.remove()"><figcaption>One Android phone is the eyes, the brain, and the coach. No cloud in the loop.</figcaption><div class="fig-row"><img src="figures/petoi-phone.jpg" alt="Phone app showing camera detections of the robot dog and a water bottle, with a Gemma-generated play suggestion" loading="lazy" onerror="this.remove()"><img src="figures/petoi-play.jpg" alt="The toy leads and the parent joins: toy, child, and parent around shared play" loading="lazy" onerror="this.remove()"></div><figcaption>Live demo on the phone (Gemma on CPU) and the play loop: the toy leads, the parent joins</figcaption></figure>
+          <figure class="dir-fig"><img src="figures/petoi-arch.jpg" alt="Family Petoi architecture: phone camera, Gemma 4 E2B on-device, a state machine, then the Petoi robot for the child and a spoken card for the parent" loading="lazy" onerror="this.remove()"><figcaption>One Android phone is the eyes, the brain, and the coach. No cloud in the loop.</figcaption><img class="sub" src="figures/petoi-play.jpg" alt="The toy leads and the parent joins: toy, child, and parent around shared play" loading="lazy" onerror="this.remove()"><figcaption>The play loop: the toy leads, the parent joins</figcaption></figure>
           <div class="dir-body">
             <h3>On-device agent for family play</h3>
-            <p class="signal"><span>Human signal</span>How children play and how parents join in</p>
             <p>Family Petoi runs Gemma 4 E2B fully on an Android phone with LiteRT-LM. The camera watches playtime, Gemma turns each frame into a small JSON state, and a state machine drives a Petoi robot dog over Bluetooth to draw the child in, while the parent gets one-line play cues through on-device speech. Nothing goes to the cloud, so a child's video never leaves the room, and Gemma fills safe templates instead of writing freely to a child.</p>
+            <figure class="body-fig petoi-left"><img src="figures/petoi-phone.jpg" alt="Phone app showing camera detections of the robot dog and a water bottle, with a Gemma-generated play suggestion" loading="lazy" onerror="this.remove()"><figcaption>100% On-Device Gemma on the phone, in airplane mode</figcaption></figure>
             <p class="rep"><span>Project</span><i>Family Petoi</i>, Finalist, Google Gemma Hardware Hackathon, AGI House, October 2026.</p>
           </div>
         </article>
@@ -512,8 +519,8 @@ footer .contact{margin-top:0}
       <p class="eyebrow">Service</p>
       <h2 id="svc-h">Service &amp; recognition</h2>
       <div class="service">
-        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA.</p></div>
-        <div class="card"><h3>Mentoring</h3><p>Mentored students to first publications at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
+        <div class="card"><h3>Service</h3><p>Program and session chair for AAAI, ICDM, CIKM, IEEE BigData, and ICMLA. Reviewed 80+ papers for major AI and domain venues.</p></div>
+        <div class="card"><h3>Mentoring</h3><p>Mentored students to publish papers at CVPR, WACV, and KDD. WPI 1st AI Mentor Award.</p></div>
         <div class="card"><h3>Funding &amp; awards</h3><p>U.S. Army research grant recipient. NSF-CEDAR Trainee. Research supported by NSF, NIH, and U.S. military grants.</p></div>
       </div>
     </div>
@@ -557,7 +564,7 @@ const LINKS = [
 /* ===== Edit here: publications. tag: clinical | science | ml | learning ===== */
 const PUBS = [
   { y:"Under review", tag:"clinical", first:true,  t:"Noninvasive Smartwatch-Based Hypoglycemia Prediction Using Machine Learning", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
-  { y:"Under review", tag:"clinical", first:true,  t:"Multimodal Multilabel Deep Learning for Identification of Opioid Use Disorder Using Clinical Notes and Structured EHR", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
+  { y:"Under review", tag:"clinical", first:true,  t:"Multimodal Deep Phenotyping of Opioid Use Disorder Using Electronic Health Records", a:"<b>B. Yin</b>, et al.", v:"Manuscript in submission" },
   { y:"Under review", tag:"clinical", first:false, t:"Fairness Assessment and Bias Mitigation in Cardiovascular Risk Prediction for Type 2 Diabetes", a:"… <b>B. Yin</b>, et al.", v:"Manuscript in submission" },
   { y:"2026", tag:"clinical", first:false, t:"Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review", a:"K. Yu, S. Zhou, … <b>B. Yin</b>, … R. Zhang", v:"npj Digital Medicine (Nature Portfolio)", l:"https://www.nature.com/articles/s41746-026-03060-z" },
   { y:"2026", tag:"clinical", first:false, t:"AI-Enabled Decision Support Systems in Epilepsy Surgery", a:"… <b>B. Yin</b>, et al.", v:"npj Health Systems (Nature Portfolio)", l:"https://www.nature.com/articles/s44401-026-00103-1" },
