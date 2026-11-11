@@ -144,6 +144,16 @@ p{margin:0; max-width:70ch}
 .stats b{font-family:var(--font-serif); font-weight:400; font-size:2.3rem; line-height:1; color:var(--navy); font-variant-numeric:tabular-nums}
 .stats span{font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:6px}
 
+/* Recent highlights */
+.recent{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:6px 24px; align-items:start; margin-top:30px; padding:16px 22px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--c-clinical); border-radius:10px}
+.recent-h{font:600 0.74rem var(--font-sans); letter-spacing:0.2em; text-transform:uppercase; color:var(--c-clinical); padding-top:3px}
+.recent ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.recent li{display:flex; flex-direction:column; gap:1px; line-height:1.4}
+.recent .venue{font-size:0.82rem; font-weight:600; color:var(--muted)}
+.recent .venue em{font-style:normal; color:var(--c-clinical)}
+.recent li a, .recent li i, .recent li b{font-weight:600; color:var(--ink); font-style:normal}
+.recent-all{font-size:0.88rem; white-space:nowrap; padding-top:2px}
+@media (max-width:640px){ .recent{grid-template-columns:minmax(0,1fr)} }
 /* Path (4 steps) */
 .path{list-style:none; margin:32px 0 0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px}
 .path li{display:flex; flex-direction:column; gap:4px; padding-top:18px; border-top:2px solid var(--line)}
@@ -348,6 +358,18 @@ footer .contact{margin-top:0}
         <li><b>1</b><span>Issued AI patent</span></li>
         <li><b>100+</b><span>Contributors led</span></li>
       </ul>
+
+      <div class="recent" aria-label="Recent highlights">
+        <p class="recent-h">Recent</p>
+        <ul>
+          <li><span class="venue">npj Digital Medicine <em>(Nature Portfolio)</em> · 2026</span><a href="https://www.nature.com/articles/s41746-026-03060-z" target="_blank" rel="noopener">Multimodal Artificial Intelligence Agents in Healthcare: A Scoping Review</a></li>
+          <li><span class="venue">npj Health Systems <em>(Nature Portfolio)</em> · 2026</span><a href="https://www.nature.com/articles/s44401-026-00103-1" target="_blank" rel="noopener">AI-Enabled Decision Support Systems in Epilepsy Surgery</a></li>
+          <li><span class="venue">AMIA Annual Symposium · 2026 (accepted)</span><i>Extracting Comprehensive Community Care-Driven Social Factors from Clinical Notes in a National Community Health Network Using Large Language Models</i></li>
+          <li><span class="venue">AMIA Annual Symposium · 2025 (poster)</span><a href="papers/sdoh-amia2025-poster.pdf" target="_blank" rel="noopener">Extracting Social Determinants of Health from Clinical Notes Using Large Language Models</a></li>
+          <li><span class="venue">Worcester Polytechnic Institute · 2024</span><b>Ph.D. in Data Science</b></li>
+        </ul>
+        <a class="recent-all" href="#news">All news →</a>
+      </div>
 
       <div class="tri card">
         <figure class="tri-fig" aria-label="Research focus triangle">
